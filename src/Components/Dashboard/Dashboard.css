@@ -1,0 +1,10 @@
+.dashboard__main{
+    
+    display: flex;
+}
+
+.dashboard__container{
+    border: 2px solid green;
+    width: 100%;
+    background-color: #F5F5F5;
+}

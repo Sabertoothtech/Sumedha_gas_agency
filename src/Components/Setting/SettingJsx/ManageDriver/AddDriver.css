@@ -1,0 +1,63 @@
+.add_driver__main{
+    border: 2px solid red;
+    width: 1000rem;
+    height: 100vh;
+    margin-top: -400px; 
+    margin-left: -500px;
+    background-color:white;
+    padding: 200px;
+    z-index: 1; 
+      
+    
+    
+}
+.add_driver__container{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    width: 850px;
+    height: 560px;
+    margin-left: -110px;
+    margin-top: -80px;
+    border-radius: 20px;
+    padding: 10px 10px ;
+    
+
+}
+.add_driver_cancleBtn{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    color: red;
+
+}
+.add_driver_clearbtn{
+    cursor: pointer;
+}
+
+.add_driver__container > strong{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+}
+
+.add_driver_driverData{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add_driver_driverData input{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+
+}
+
+.add_driver_button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.add_driver_button >.adddriverbtn{
+    padding: 15px 50px}

@@ -1,0 +1,25 @@
+.big_4container__main{
+    overflow-y: scroll;
+    height: 550px;
+}
+
+.Big4_container_box{
+    width: 400px;
+    height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+    transition: background-color 0.1s ease-in-out ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inactive{
+    background-color: white;
+
+
+}
+.afteractive{
+    background-color: rgb(34, 9, 146);
+    color: white;
+}
