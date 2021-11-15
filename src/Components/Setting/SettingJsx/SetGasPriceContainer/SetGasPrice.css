@@ -1,0 +1,64 @@
+.set_gas_price__container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.set_gas_price__container input{
+    margin: 0;
+    padding: 0;
+    width: 130px;
+}
+
+.set_gas_price__container label{
+    margin: 0;
+    padding: 0;
+   
+}
+
+.set_gas_price__container label{
+    margin-bottom: 5px;
+}
+
+/* .set_gas_price__gasName{
+    display: flex;
+    f
+} */
+
+.setgaspriceinput{
+    display: flex;
+    flex-direction: column;
+}
+.setgaspriceinput{
+    display: flex;
+    flex-direction: column;
+}
+.set_gas_price__gasName{
+    display: flex;
+    flex-direction: column;
+
+}
+.set_gas_price__gasName{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.setgaspriceinput>input{
+    margin-bottom: 10px;
+}
+.setgaspriceCGST > input{
+    margin-bottom: 25px;
+}
+
+.setgaspriceGST > input{
+    margin-bottom: 25px;
+}
+
+.setgasprice__buton{
+    width: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid rebeccapurple; */
+}
+

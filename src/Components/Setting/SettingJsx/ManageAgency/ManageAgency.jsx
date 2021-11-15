@@ -3,7 +3,7 @@ import React from 'react'
 function ManageAgency({n}) {
     return (
         <div>
-            Mai hu manage Agency{n}
+            Mananage Agency
         </div>
     )
 }

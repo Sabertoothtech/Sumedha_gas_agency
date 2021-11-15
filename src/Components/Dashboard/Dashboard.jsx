@@ -8,7 +8,7 @@ function Dashboard() {
             <div className="dashboard__main">
                 <LeftSidebar />
                 <div className="dashboard__container">
-                    mai hu dashboard
+                    Dashboard
                 </div>
             </div>
         </>

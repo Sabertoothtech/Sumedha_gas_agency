@@ -3,7 +3,7 @@ import React from 'react'
 function GetHelp() {
     return (
         <div>
-            Mai hu get help
+            Get Help
         </div>
     )
 }

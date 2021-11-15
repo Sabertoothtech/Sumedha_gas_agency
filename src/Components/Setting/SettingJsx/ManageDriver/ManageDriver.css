@@ -1,6 +1,8 @@
 .manage_driver__main{
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    height: 75%;
 }
 .manage_driver_name_icon{
     display: flex;
