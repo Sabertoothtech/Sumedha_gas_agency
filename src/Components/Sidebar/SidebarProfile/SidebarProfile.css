@@ -1,0 +1,32 @@
+.sidebar_profile_imageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10PX;
+
+}
+
+#nav_profile{
+    font-size: small;
+    text-decoration-line: none;
+}
+small {
+    padding: 10PX;
+}
+.sidebar_nav_item{
+    list-style: none;
+    text-decoration: none;
+
+}
+.sidebar_nav_item >  a{
+   text-decoration: none;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: rgb(3, 0, 0);
+
+}
+.sidebar_nav_item >  a:hover{
+    color: rgb(6, 6, 167);
+    border-left: 2px solid rgb(7, 7, 128);
+ }
