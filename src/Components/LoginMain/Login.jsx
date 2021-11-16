@@ -31,7 +31,7 @@ function Login() {
                     }
                     history.push('/setting')
              })
-                .catch((err) => { setError(err.response.data[0].message) })
+                .catch((err) => { setError("error")})
         }
     
     }

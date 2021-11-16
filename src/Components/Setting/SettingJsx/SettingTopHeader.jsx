@@ -16,6 +16,7 @@ function SettingTopHeader({pageName}) {
         <div style={sthc} className="setting_top_header__main">
             <p>{pageName}</p>
             
+            
         </div>
     )
 }

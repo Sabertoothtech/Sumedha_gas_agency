@@ -1,10 +1,152 @@
 .dashboard__main{
     
     display: flex;
+    height: 100vh;
+    
 }
 
 .dashboard__container{
-    border: 2px solid green;
+    /* border: 2px solid green; */
+    overflow-y: scroll;
+    
     width: 100%;
     background-color: #F5F5F5;
+}
+
+.dashboard_main_container{
+    background-color: white;
+    width: 80%;
+    margin: 30px 50px;
+   
+    /* border: 2px solid red; */
+}
+.dashboard_3small_Container{
+    
+    /* border: 2px solid red; */
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.dashboard_statistics{
+    width: 90%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.dashboard_statistics__text{
+    display: flex;
+    width: 97%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashboard_statistics__text small{
+    margin: 0px;
+    padding: 0px;
+}
+
+.dashboard_statistics__text > select{
+    
+    background-color: white;
+}
+
+.dashboard_view_statistics{
+    width: 90%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+
+}
+
+.dashboard_instock_2small_container{
+    margin-left: 15px;
+}
+.view_statistics_button{
+    margin-right: 20px;
+}
+
+.dashboard_2smallin1container{
+    display: flex;
+
+}
+
+.dashboard_circlechart{
+    
+    width: 90%;
+    margin: auto;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.dashboard_doughnut_text{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    padding: 10px;
+    
+
+}
+
+.dashboard_barchart_doughnut{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 60%;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.dashboard_circlechart small{
+    margin: 0px;
+    padding: 0px;
+}
+
+.dashboard__linechart_table{
+    width: 90%;
+    border: 2px solid hotpink;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.dashboard_linechart{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 60%;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dashboard_table{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
 }
