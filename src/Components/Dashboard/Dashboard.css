@@ -121,7 +121,7 @@
 
 .dashboard__linechart_table{
     width: 90%;
-    border: 2px solid hotpink;
+    /* border: 2px solid hotpink; */
     margin: auto;
     display: flex;
     justify-content: space-between;
