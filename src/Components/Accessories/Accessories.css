@@ -1,0 +1,35 @@
+.accessories__main{
+    display: flex;
+    
+ 
+}
+.accessories__container{
+    /* border: 2px solid green; */
+    max-height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    background-color: #F5F5F5;
+    overflow-y: scroll;
+   
+    
+}
+
+.accessories_main_container{
+    background-color: white;
+    width: 80%;
+    margin: 30px 50px;
+    min-height: 90vh;
+    
+}
+
+.accessories_all_container{
+    /* border: 2px solid gold; */
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+
+}

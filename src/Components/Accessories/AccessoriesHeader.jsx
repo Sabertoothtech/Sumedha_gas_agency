@@ -19,9 +19,9 @@ function DashboardHeader() {
 
     return (
         <div style={dth} className="DashboardHeader__main">
-            <p>Overview</p>
+            <p>Accessories</p>
             <Button style={dhBtn} className="dhBtn" variant="contained" color="success">
-                Manage/Agency/Company
+                +Add Product
             </Button>
         </div>
     )

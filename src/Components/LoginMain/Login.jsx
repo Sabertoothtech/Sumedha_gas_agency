@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import logo from "./logo.png";
-import { useHistory,Redirect } from 'react-router';
+import { useHistory, Redirect } from 'react-router';
 import { LoginAPI } from '../../Utils/utils';
 import axios from 'axios';
 import './Login.css'
@@ -11,7 +11,7 @@ function Login() {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
     const loginBtnClick = async () => {
-        
+
         if (email === "" || password === "") {
             setError("All Field are required")
         } else {
@@ -24,16 +24,16 @@ function Login() {
                 }
             }
             await axios(config)
-                .then((res) => { 
-                    
-                    if(res.data.token){
-                        sessionStorage.setItem('token',res.data.token)
+                .then((res) => {
+
+                    if (res.data.token) {
+                        sessionStorage.setItem('token', res.data.token)
                     }
                     history.push('/dashboard')
-             })
-                .catch((err) => { setError("error")})
+                })
+                .catch((err) => { setError("error") })
         }
-    
+
     }
     return (
         <>

@@ -25,7 +25,7 @@ function ManageDriver(props) {
         }
         axios(config)
             .then((res) => {
-                console.log(res.data[18].name)
+                // console.log(res.data[18].name)
                 const ddname = res.data.map((dname, idx) => ({
                     drivername: dname.name
                 }))
