@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button';
 // import { margin } from '@mui/system';
 
-function DashboardHeader() {
+function DashboardHeader({setAddProduct}) {
     const dth = {
         width: "95%",
         margin:"auto",
@@ -13,14 +13,18 @@ function DashboardHeader() {
     }
     const dhBtn={
         height:"50px",
-        padding: "30px 30px",
-        borderRadius:"30px"
+        padding: "20px 20px",
+        borderRadius:"30px",
+        fontSize:"13px",
+        fontWeight:"500",
+        latterSpacing:"2px",
+        textTransform: "capitalize",
     }
 
     return (
         <div style={dth} className="DashboardHeader__main">
-            <p>Accessories</p>
-            <Button style={dhBtn} className="dhBtn" variant="contained" color="success">
+            <p style={{fontSize:"25px", letterSpacing:"1px"}}>Accessories</p>
+            <Button style={dhBtn} onClick={()=> setAddProduct(true)} className="dhBtn" variant="contained" color="success">
                 +Add Product
             </Button>
         </div>

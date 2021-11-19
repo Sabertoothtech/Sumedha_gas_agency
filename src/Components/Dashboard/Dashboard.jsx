@@ -22,9 +22,9 @@ function Dashboard() {
                         <DashboardHeader />
                         <hr style={{ color: "#f5f5f5" }} />
                         <div className="dashboard_3small_Container">
-                            <ThreeSmallContainer bgcolor="#006400" trandingicon="MovingIcon" />
-                            <ThreeSmallContainer bgcolor="#dc143c" />
-                            <ThreeSmallContainer bgcolor="#7b68ee" />
+                            <ThreeSmallContainer bgcolor="#006400" color="#006400" />
+                            <ThreeSmallContainer bgcolor="#dc143c" color="#dc143c" />
+                            <ThreeSmallContainer bgcolor="#7b68ee" color="#7b68ee" />
                         </div>
                         <hr style={{ color: "#f5f5f5", width: "90%", margin: "auto" }} />
                         <div className="dashboard_statistics">

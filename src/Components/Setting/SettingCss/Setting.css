@@ -31,6 +31,7 @@
 
 .setting_4big_container{
     padding: 10px;
+    margin-left: 10px;
 
 }
 
@@ -40,5 +41,6 @@
     padding: 10px 10px;
     border-radius: 20px;
     margin-top: 10px;
+    margin-right: 8px;
 }
 

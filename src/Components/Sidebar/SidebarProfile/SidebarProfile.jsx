@@ -8,7 +8,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 import LocalGasStationOutlinedIcon from '@mui/icons-material/LocalGasStationOutlined';
 import SettingsIcon from "@mui/icons-material/Settings";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import ConstructionOutlinedIcon from "@mui/icons-material/ConstructionOutlined";
 import { style } from '@mui/system';
@@ -46,7 +46,7 @@ function SidebarProfile() {
         },
         {
             className: "sidebar_nav_item",
-            icon: AttachMoneyIcon,
+            icon: StarBorderOutlinedIcon,
             name: "My Order",
             path: "/myorder"
 
@@ -73,7 +73,7 @@ function SidebarProfile() {
                 <Avatar
                     alt="Remy Sharp"
                     src=""
-                    sx={{ width: 100, height: 100 }}
+                    sx={{ width: 70, height: 70 }}
                 />
 
                 <small>John Cena</small>
@@ -82,14 +82,14 @@ function SidebarProfile() {
             </div><br /> <hr /><br /> <br />
             <div className="sidebar_profile_icon_list">
                 <ul>
-                    <strong>Menu</strong>
+                    <strong style={{fontSize:"15px",fontWeight:"550", letterSpacing:"1px"}}>MENU</strong>
                     {
                         iconData.map((icon, idx) => (
 
                             <li key={idx} className={icon.className}>
-                                <NavLink to={icon.path}>
-                                    <icon.icon fontSize="small" color="disabled" />
-                                    <small>{icon.name}</small>
+                                <NavLink activeStyle={{color:"rgb(34, 9, 146)"}} to={icon.path}>
+                                    <icon.icon fontSize="small" color="gray" />
+                                    <small style={{fontWeight:"500", letterSpacing:"1px"}}>{icon.name}</small>
                                 </NavLink>
 
                             </li>

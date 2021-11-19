@@ -13,19 +13,19 @@ function DashboardHeader() {
     }
     const dhBtn={
         height:"50px",
-        padding: "20px 20px",
+        padding: "15px 30px",
         borderRadius:"30px",
         fontSize:"13px",
         fontWeight:"500",
-        latterSpacing:"2px",
+        latterSpacing:"1.5px",
         textTransform: "capitalize",
     }
 
     return (
         <div style={dth} className="DashboardHeader__main">
-            <p style={{fontSize:"25px", letterSpacing:"1px"}}>Overview</p>
+            <p style={{fontSize:"25px", letterSpacing:"1px"}}>Filled Cylinder</p>
             <Button style={dhBtn} className="dhBtn" variant="contained" color="success">
-                Manage Agency/Company
+               +Add Entry 
             </Button>
         </div>
     )

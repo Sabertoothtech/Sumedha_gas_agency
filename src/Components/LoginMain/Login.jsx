@@ -53,8 +53,8 @@ function Login() {
                         <label htmlFor="">Password</label>
                         <input onChange={(e) => setPassword(e.target.value)} type="password" name="pass" />
                     </div>
-                    <button onClick={loginBtnClick} style={{ backgroundColor: "#000080", color: "white" }}>
-                        Login
+                    <button onClick={loginBtnClick} style={{ backgroundColor: "#000080", color: "white", fontSize:"12px", fontWeight:"600",padding:"12px 60px" }}>
+                        LOGIN
                     </button>
                 </div>
             </div>

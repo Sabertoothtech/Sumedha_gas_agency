@@ -12,8 +12,8 @@ function Instock2in1Container(props) {
         alignItems:"center",
     } 
     const instock2in1container__circle={
-        width:"70px",
-        height:"70px",
+        width:"50px",
+        height:"50px",
         // border:"2px solid hotpink",
         borderRadius:"50%",
         display:"flex",

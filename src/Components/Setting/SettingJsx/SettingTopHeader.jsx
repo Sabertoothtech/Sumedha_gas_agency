@@ -14,7 +14,7 @@ function SettingTopHeader({pageName}) {
     }
     return (
         <div style={sthc} className="setting_top_header__main">
-            <p>{pageName}</p>
+            <p style={{fontSize:"25px", letterSpacing:"1px"}}>{pageName}</p>
             
             
         </div>

@@ -10,7 +10,7 @@ function Accessories_4Small_container(props) {
 
     const accessories_4_small__main = {
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-        width: "450px",
+        width: "400px",
         height: "100px",
         marginTop: "20px",
         borderRadius: "10px",
@@ -45,9 +45,9 @@ function Accessories_4Small_container(props) {
             <div style={accessories_4_small_Item}>
                 <img style={accessories_4_small_image} src="{image}" alt="Image" />
                 <div style={accessories_4_small_data}>
-                    <p>{proname}</p>
-                    <p>{quantity}</p>
-                    <p>{price}</p>
+                    <span style={{margin:"0px", padding:"0px"}}>{proname}</span>
+                    <small style={{margin:"0px", padding:"0px"}}>Price: Rs{price}</small>
+                    <small style={{margin:"0px", padding:"0px"}}>In stock: {quantity}</small>
 
                 </div>
             </div>

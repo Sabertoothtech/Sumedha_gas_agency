@@ -1,0 +1,36 @@
+.filled_cylinder__main{
+    display: flex;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.filled_cylinder__container{
+    width: 100%;
+    background-color: #F5F5F5;
+}
+.filled_cylinder__main_container{
+    background-color: white;
+    width: 80%;
+    margin: 30px 50px;
+}
+
+.filled_cylinder_3small{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.filled_cylinder_both_container{
+    width: 95%;
+    max-height: 430px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.filled_cylinder_4big{
+    flex:0.6;
+    overflow-y: scroll;
+}

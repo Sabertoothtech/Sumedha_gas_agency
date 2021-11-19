@@ -51,6 +51,7 @@ input{
     outline: none;
     margin: 10px;
     border-radius: 7px;
+    background-color:white;
 }
 
 .input_box{
@@ -65,6 +66,8 @@ label{
     font-size: 12px;
     font-weight: 550;
     margin-left: 10px;
+    letter-spacing: 0.5px;
+
 }
 
 

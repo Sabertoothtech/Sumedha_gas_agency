@@ -47,7 +47,7 @@ function AddDriver({ setShowCon }) {
         <div className=" add_driver__main">
             <div className="add_driver__container">
                 <div className="add_driver_cancleBtn"><ClearIcon className="add_driver_clearbtn" onClick={() => setShowCon(false)} /></div>
-                <strong>New Driver</strong>
+                 
                 <div className="add_driver_driverData">
                     <div className="add_driver_left_data">
                         <label htmlFor="">Name:</label>
