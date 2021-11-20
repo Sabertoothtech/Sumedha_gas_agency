@@ -8,6 +8,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Setting from './Components/Setting/SettingJsx/Setting';
 import Accessories from './Components/Accessories/Accessories';
 import FilledCylinder from './Components/FilledCylinder/FilledCylinder';
+import Profile from './Components/Sidebar/SidebarProfile/Profile/Profile';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Protected path="/setting" component={Setting} Auth={sessionStorage.getItem('token')}/>
         <Protected path="/accessories" component={Accessories} Auth={sessionStorage.getItem('token')}/>
         <Protected path="/filledcylinder" component={FilledCylinder} Auth={sessionStorage.getItem('token')}/>
+        <Protected path="/profile" component={Profile} Auth={sessionStorage.getItem('token')}/>
         </Switch>
       </Router>
 

@@ -24,7 +24,6 @@ function TableDashboard() {
                     <small>23</small>
                     <small>32</small>
                     <small>11</small>
-                    <small>31</small>
                     
                 </small>
             </div>

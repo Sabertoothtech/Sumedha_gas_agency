@@ -8,28 +8,21 @@ function Big4Container(props) {
         objects: [
             {
                 id: 1,
-                title: "Get Help"
+                title: "Domestic 15kg"
             },
             {
                 id: 2,
-                title: "Manage agency/company"
+                title: "Commercial 21kg"
             },
             {
                 id: 3,
-                title: "Manage driver"
+                title: "Commercial/VOT/LOT 33kg"
             },
             {
                 id: 4,
-                title: "Set gas price"
+                title: "Commercial/LOT 45kg"
             },
-            {
-                id: 5,
-                title: "Cost of empty cylinder"
-            },
-            {
-                id: 6,
-                title: "Change password"
-            },
+            
         ]
     })
 
@@ -40,9 +33,9 @@ function Big4Container(props) {
 
     const togalActiveStyle = (index) => {
         if (divColor.objects[index] === divColor.activeObject) {
-            return "Big4_container_box afteractive"
+            return "Big4_filled_container_box afteractive"
         } else {
-            return "Big4_container_box inactive"
+            return "Big4_filled_container_box inactive"
         }
     }
     return (

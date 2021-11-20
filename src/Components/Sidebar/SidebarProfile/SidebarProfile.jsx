@@ -78,7 +78,7 @@ function SidebarProfile() {
 
                 <small>John Cena</small>
                 <br />
-                <NavLink id="nav_profile" to="/">Profile</NavLink>
+                <NavLink id="nav_profile" to="/profile">Profile</NavLink>
             </div><br /> <hr /><br /> <br />
             <div className="sidebar_profile_icon_list">
                 <ul>
