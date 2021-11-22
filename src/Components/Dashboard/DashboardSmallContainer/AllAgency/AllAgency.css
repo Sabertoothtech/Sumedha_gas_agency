@@ -1,0 +1,12 @@
+.all_agency__main {
+  min-height: 75vh;
+  /* border: 2px solid red; */
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  
+}

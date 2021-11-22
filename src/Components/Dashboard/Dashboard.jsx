@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Dashboard.css'
 import LeftSidebar from '../Sidebar/LeftSidebar'
 import DashboardHeader from './DashboardHeader'
@@ -11,17 +11,22 @@ import BarChartWithDoughtnut from './DashboardSmallContainer/BarChartWithDoughtn
 import MovingIcon from '@mui/icons-material/Moving';
 import LineChartDashboard from './DashboardSmallContainer/LineChartDashboard';
 import TableDashboard from './DashboardSmallContainer/TableDashboard';
+import AllAgency from './DashboardSmallContainer/AllAgency/AllAgency';
 
 function Dashboard() {
+    const [allCountryData, setAllCountryData] = useState(true)
     return (
         <>
             <div className="dashboard__main">
                 <LeftSidebar />
                 <div className="dashboard__container">
                     <div className="dashboard_main_container">
-                        <DashboardHeader />
+                        <DashboardHeader allCountryData={allCountryData} setAllCountryData={setAllCountryData} />
                         <hr style={{ color: "#f5f5f5" }} />
-                        <div className="dashboard_3small_Container">
+                        {
+                            allCountryData? <AllAgency/>:
+                            <>
+                            <div className="dashboard_3small_Container">
                             <ThreeSmallContainer bgcolor="#006400" color="#006400" />
                             <ThreeSmallContainer bgcolor="#dc143c" color="#dc143c" />
                             <ThreeSmallContainer bgcolor="#7b68ee" color="#7b68ee" />
@@ -84,6 +89,8 @@ function Dashboard() {
                             <TableDashboard/>
                             </div>
                         </div>
+                            </>
+                        }
 
                     </div>
                 </div>

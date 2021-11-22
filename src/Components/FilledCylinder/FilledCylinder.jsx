@@ -14,8 +14,8 @@ function FilledCylinder() {
           <HeaderFilledCylinder />
           <hr style={{ color: "#f5f5f5" }} />
           <div className="filled_cylinder_3small">
-            <Small4FilledCylinder bgcolor="#00BFFF" color="#00BFFF" />
             <Small4FilledCylinder bgcolor="#dc143c" color="#dc143c" />
+            <Small4FilledCylinder bgcolor="#00BFFF" color="#00BFFF" />
             <Small4FilledCylinder bgcolor="#7b68ee" color="#7b68ee" />
           </div>
           <hr style={{ color: "#f5f5f5", width: "90%", margin: "auto" }} />
