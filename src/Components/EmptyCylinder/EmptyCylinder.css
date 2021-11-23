@@ -34,3 +34,19 @@
     flex:0.5;
     overflow-y: scroll;
 }
+
+.empty_cylinder_1_changeable_container{
+  flex: 0.45;
+  /* border: 2px solid red; */
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.empty_cylinder_1_changeable_container{
+  display: flex;
+  flex-direction: column;
+}
+.empty_cylinder_1_changeable_container small{
+  margin: 0px;
+  padding: 0px;
+}

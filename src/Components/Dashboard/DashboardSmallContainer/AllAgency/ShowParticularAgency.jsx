@@ -2,12 +2,12 @@ import React from "react";
 import "./ShowParticularAgency.css";
 import CloseIcon from '@mui/icons-material/Close';
 
-function ShowParticularAgency(props) {
+function ShowParticularAgency({setShowAgencyBool}) {
   return (
     <div className="show_particular_agency__main">
       <div className="show_particular_agency__nameedit">
         <strong>Agency</strong>
-        <CloseIcon  style={{color:"red"}}/>
+        <CloseIcon style={{color:"red", cursor:"pointer"}} onClick={()=> setShowAgencyBool(false)} />
       </div>
       <small style={{ color: "gray", margin: "0px", padding: "0px" }}>
         About
@@ -41,6 +41,19 @@ function ShowParticularAgency(props) {
                 <td>Alfreds Futterkiste</td>
                 <td>Maria Anders</td>
                 <td>Germany</td>
+                <td>India</td>
+              </tr>
+              <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+                <td>India</td>
+              </tr>
+              <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+                <td>India</td>
               </tr>
             </table>
           </div>
@@ -62,6 +75,19 @@ function ShowParticularAgency(props) {
                 <td>Alfreds Futterkiste</td>
                 <td>Maria Anders</td>
                 <td>Germany</td>
+                <td>India</td>
+              </tr>
+              <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+                <td>India</td>
+              </tr>
+              <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+                <td>India</td>
               </tr>
             </table>
           </div>

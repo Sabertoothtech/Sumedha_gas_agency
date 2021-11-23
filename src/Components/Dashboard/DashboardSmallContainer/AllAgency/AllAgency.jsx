@@ -33,7 +33,7 @@ function AllAgency() {
 
   return (
     
-      showAgencyBool? <ShowParticularAgency /> :
+      showAgencyBool? <ShowParticularAgency setShowAgencyBool={setShowAgencyBool} /> :
       <div className="all_agency__main">
       {allagecydataArray.map((ele, idx) => (
         <SmallAllAgencyContainer

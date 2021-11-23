@@ -14,7 +14,7 @@ import TableDashboard from './DashboardSmallContainer/TableDashboard';
 import AllAgency from './DashboardSmallContainer/AllAgency/AllAgency';
 
 function Dashboard() {
-    const [allCountryData, setAllCountryData] = useState(true)
+    const [allCountryData, setAllCountryData] = useState(false)
     return (
         <>
             <div className="dashboard__main">

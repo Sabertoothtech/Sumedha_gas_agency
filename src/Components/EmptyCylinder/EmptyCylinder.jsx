@@ -22,7 +22,32 @@ function EmptyCylinder() {
               <div className="empty_cylinder_4_small_container">
                  <Big4ContainerEmpty/> 
               </div>
-              <div className="empty_cylinder_1_changeable_container">hi</div>
+              <div className="empty_cylinder_1_changeable_container">
+                <small style={{fontSize:"12px", color:"gray", marginBottom:"10px"}}>All cylinder in stock</small>
+                <small style={{marginBottom:"15px"}}>Domestic 15kg</small>
+                <table>
+                  <tr>
+                    <td>Agency name</td>
+                    <td>Date</td>
+                    <td>Quantity</td>
+                  </tr>
+                  <tr>
+                    <th>RD Agency</th>
+                    <th>12/10/1990</th>
+                    <th>50</th>
+                  </tr>
+                  <tr>
+                    <th>RD Agency</th>
+                    <th>12/10/1990</th>
+                    <th>50</th>
+                  </tr>
+                  <tr>
+                    <th>RD Agency</th>
+                    <th>12/10/1990</th>
+                    <th>50</th>
+                  </tr>
+                </table>
+              </div>
           </div>
         </div>
       </div>
