@@ -1,58 +1,122 @@
+import ClearIcon from "@mui/icons-material/Clear";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Button from "@mui/material/Button";
+import { width } from "@mui/system";
 
-import React,{useEffect} from 'react'
-import axios from 'axios'
+function AccessoriesAddProduct({ setAddProduct }) {
+  const [proName, setProName] = useState("");
+  const [proOunatity, setProOunatity] = useState("");
+  const [proPrice, setProPrice] = useState("");
+  const [proImage, setProImage] = useState("");
+  const accessories__main = {
+    boxShadow:
+      "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
+    width: "350px",
+    height: "450px",
+    borderRadius: "10px",
+    marginTop: "15px",
+    padding: "10px",
+  };
+  const accessories__container = {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  };
 
-function AccessoriesAddProduct() {
+  const input_all = {
+    margin: "0px",
+    padding: "0px",
+    border: "2px solid gray",
+    display: "flex",
+  };
+  const accessories_icon = {
+    display: "flex",
+    flexDirection: "column",
+  };
 
-    const accessories__main={
-        border:"2px solid red",
-        width:"100%",
-        
-        
-        
-    }
-    const accessories__container={
+  const ApiCallSave = () => {
+    var FormDatas = new FormData();
+    FormDatas.append("product_name", proName);
+    FormDatas.append("quantity", proOunatity);
+    FormDatas.append("price", proPrice);
+    FormDatas.append("product_image", proImage);
 
-    }
+    axios({
+      method: "post",
+      url: "http://45.79.121.178:8000/accessories/",
 
-    useEffect(() => {
-      var bodyFormData = new FormData();
-      bodyFormData.append('agency_name', 'kmaa');
-      bodyFormData.append('agency_id_data', '34335');
-      bodyFormData.append('gst_no', '433');
-      bodyFormData.append('email', 'gma617mddail@gmail.com');
-      bodyFormData.append('contact_no', '999999991');
-      bodyFormData.append('address', 'Fredghghbj');
-      bodyFormData.append('deposited_amount', '8787');
-      bodyFormData.append('cylinder_bought_by_agency_id', JSON.stringify([{cylinder_type_id: 1, quantity: 888}]));
-      bodyFormData.append('cylinder_selling_price_id', JSON.stringify([{cylinder_type_id: 1, selling_price: 676}]));
-
-      axios({
-        method: "post",
-        url: "http://45.79.121.178:8000/agency/",
-        data: bodyFormData,
-        headers: { 
-          'Content-Type': `multipart/form-data; boundary=${bodyFormData._boundary}`,
-          'Authorization': `Token ${sessionStorage.getItem('token')}`,
+      data: FormDatas,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Token ${sessionStorage.getItem("token")}`,
       },
+    })
+      .then(function (response) {
+        alert(response.data)
       })
-        .then(function (response) {
-          console.log("sucess")
-          console.log(response);
-        })
-        .catch(function (response) {
-          console.log("error")
-          console.log(response);
-        });
-    }, [])
-    return (
-        <div style={accessories__main}>
-            <div style={accessories__container}>
-
-
-            </div>
+      .catch(function (error) {
+        alert(error.response.data[0].Message +" All field Are Required");
+      });
+  };
+  return (
+    <div style={accessories__main}>
+      <div style={accessories__container}>
+        <div style={accessories_icon}>
+          <ClearIcon
+            onClick={() => setAddProduct(false)}
+            style={{ marginLeft: "auto" }}
+          />
+          <strong
+            style={{ margin: "auto", fontSize: "13px", fontWeight: "700" }}
+          >
+            New Product
+          </strong>
         </div>
-    )
+        <div style={{ margin: "auto", width: "90%" }}>
+          <label htmlFor="">Product Name: </label>
+          <input
+            onChange={(e) => setProName(e.target.value)}
+            style={input_all}
+            type="text"
+          />
+        </div>
+        <div style={{ margin: "auto", width: "90%" }}>
+          <label htmlFor="">Ouantity: </label>
+          <input
+            onChange={(e) => setProOunatity(e.target.value)}
+            style={input_all}
+            type="text"
+          />
+        </div>
+        <div style={{ margin: "auto", width: "90%" }}>
+          <label htmlFor="">Price: </label>
+          <input
+            onChange={(e) => setProPrice (e.target.value)}
+            style={input_all}
+            type="text"
+          />
+        </div>
+        <div style={{ margin: "auto", width: "90%", outline: "2px red" }}>
+          <label htmlFor="">Product Image: </label>
+          <input
+            style={input_all}
+            type="file"
+            onChange={(e) => setProImage(e.target.files[0])}
+          />
+        </div>
+        <Button
+          onClick={ApiCallSave}
+          style={{ width: "50%", margin: "auto" }}
+          variant="contained"
+          color="success"
+        >
+          Save
+        </Button>
+      </div>
+    </div>
+  );
 }
 
-export default AccessoriesAddProduct
+export default AccessoriesAddProduct;

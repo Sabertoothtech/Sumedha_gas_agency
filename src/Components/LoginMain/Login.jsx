@@ -29,7 +29,7 @@ function Login() {
                     if (res.data.token) {
                         sessionStorage.setItem('token', res.data.token)
                     }
-                    history.push('/dashboard')
+                    window.location = "/dashboard";
                 })
                 .catch((err) => { setError("error") })
         }

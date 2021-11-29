@@ -52,7 +52,16 @@ function ManageDriver(props) {
         </div>
       ))}
       <div className="manage_button">
-        <Button style={{backgroundColor:"rgb(34, 9, 146)", }} onClick={addDriverClick} variant="contained">
+        <Button
+          style={{
+            backgroundColor: "rgb(34, 9, 146)",
+            fontSize: "10px",
+            fontWeight: "600",
+            textTransform: "capitalize",
+          }}
+          onClick={addDriverClick}
+          variant="contained"
+        >
           Add Driver
         </Button>
       </div>
