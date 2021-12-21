@@ -6,7 +6,7 @@ import { getEccessoriesAPI } from '../../Utils/utils';
 
 function Accessories_4Small_container(props) {
 
-    const {proname, quantity, image,price} =props
+    const {proname, quantity, image,price,id,setUpdateAProduct} =props
 
     const accessories_4_small__main = {
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
@@ -41,14 +41,13 @@ function Accessories_4Small_container(props) {
     }
     return (
         <div style={accessories_4_small__main}>
-            <div style={accessories_4_small_Editicon}><EditIcon style={{ color: "gray", fontSize: "20px" }} /></div>
+            <div style={accessories_4_small_Editicon}><EditIcon style={{ color: "gray", fontSize: "20px" }} onClick={()=>{setUpdateAProduct(true)} } /></div>
             <div style={accessories_4_small_Item}>
                 <img style={accessories_4_small_image} src="{image}" alt="Image" />
                 <div style={accessories_4_small_data}>
                     <span style={{margin:"0px", padding:"0px"}}>{proname}</span>
                     <small style={{margin:"0px", padding:"0px"}}>Price: Rs{price}</small>
                     <small style={{margin:"0px", padding:"0px"}}>In stock: {quantity}</small>
-
                 </div>
             </div>
         </div>

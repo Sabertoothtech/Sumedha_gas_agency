@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button';
 // import { margin } from '@mui/system';
 
-function DashboardHeader({setShowAddEntryFilledCylinder}) {
+function FinanceHeader() {
     const dth = {
         width: "95%",
         margin:"auto",
@@ -23,12 +23,10 @@ function DashboardHeader({setShowAddEntryFilledCylinder}) {
 
     return (
         <div style={dth} className="DashboardHeader__main">
-            <p style={{fontSize:"25px", letterSpacing:"1px"}}>Filled Cylinder</p>
-            <Button onClick={()=> setShowAddEntryFilledCylinder(true)} style={dhBtn} className="dhBtn" variant="contained" color="success">
-               +Add Entry 
-            </Button>
+            <p style={{fontSize:"25px", letterSpacing:"1px"}}>Finance</p>
+            
         </div>
     )
 }
 
-export default DashboardHeader
+export default FinanceHeader

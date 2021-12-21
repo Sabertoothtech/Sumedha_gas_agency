@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import '../SettingCss/Big4Container.css'
 
 function Big4Container(props) {
-
     const [divColor, setDivColor] = useState({
         activeObject: null,
         objects: [
@@ -32,7 +31,12 @@ function Big4Container(props) {
             },
         ]
     })
+    // console.log(divColor.objects[1]) 
 
+    useEffect(() => {
+        setDivColor({ ...divColor, activeObject: divColor.objects[0] })
+    }, [])
+    
     const togalActive = (index) => {
         setDivColor({ ...divColor, activeObject: divColor.objects[index] })
         props.setshowcontainer(index)
@@ -50,7 +54,8 @@ function Big4Container(props) {
             {
                 divColor.objects.map((element, index) => (
                     <div key={index}>
-                        <div key={index} className={togalActiveStyle(index)} onClick={() => togalActive(index)}>
+                       
+                        <div key={index} className={togalActiveStyle(index) } onClick={() =>{ togalActive(index)}}>
                             {element.title}
                         </div>
                         <br />

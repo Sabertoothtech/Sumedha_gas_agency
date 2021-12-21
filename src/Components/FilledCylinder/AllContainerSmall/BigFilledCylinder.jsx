@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import './BigFilledCylinder.css'
+
 
 function Big4Container(props) {
 
@@ -26,9 +27,24 @@ function Big4Container(props) {
         ]
     })
 
+    // useEffect(() => {
+    //     const config = {
+    //         url: getTypeofCylinderAPI,
+    //         method: 'GET',
+    //         headers: {
+    //             'Authorization': `Token ${sessionStorage.getItem('token')}`,
+    //         },
+    //     }
+    //     await axios(config)
+    //         .then((res) => {
+    //             console.log(res.data)
+    //         }).catch((err) => alert("Something is wrong...Your Email should be unique"))
+      
+    // }, [])
+
     const togalActive = (index) => {
         setDivColor({ ...divColor, activeObject: divColor.objects[index] })
-        props.setshowcontainer(index)
+        props.setShowFilledcontainer(index)
     }
 
     const togalActiveStyle = (index) => {

@@ -36,7 +36,7 @@
 }
 
 .filled_cylinder_changeable_box {
-  
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 8px;
   overflow-y: scroll;
   max-height: 430px;
@@ -44,31 +44,20 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+  margin-right: 10px;
 }
 .filled_cylinder_table {
   display: flex;
   justify-content: space-between;
-}
-.filled_cylinder_left_table {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.filled_cylinder_left_table > small {
-  margin: 0px;
-  padding: 0px;
-  margin: 3px;
-}
+ }
 
-.filled_cylinder_right_table {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+td{
+  border:none;
 }
-.filled_cylinder_right_table > small {
-  margin: 0px;
-  padding: 0px;
-  margin: 3px;
+td{
+  /* border: 2px solid red; */
+  padding-top: 10px;
+}
+th{
+  border:none;
 }

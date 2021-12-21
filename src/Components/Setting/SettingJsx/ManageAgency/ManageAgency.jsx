@@ -33,23 +33,6 @@ function ManageAgency(props) {
       .catch((err) => console.log("error"));
   }, []);
 
-  //     const config = {
-  //       url: getAgencyAPI,
-  //       method: "GET",
-  //       headers: {
-  //         Authorization: `Token ${sessionStorage.getItem("token")}`,
-  //       },
-  //     };
-  //     axios(config)
-  //       .then((res) => {
-  //         // console.log(res.data[18].name)
-  //         const ddname = res.data.map((dname, idx) => ({
-  //           drivername: dname.name,
-  //         }));
-  //         setShowDriverName(ddname);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }, []);
   return (
     <div className="manage_driver__main">
       <small
@@ -79,7 +62,7 @@ function ManageAgency(props) {
             textTransform: "capitalize",
             padding:"8px 50px"
           }}
-          
+          onClick={()=>props.setshowAddAgency(true)}
           variant="contained"
         >
           Add new

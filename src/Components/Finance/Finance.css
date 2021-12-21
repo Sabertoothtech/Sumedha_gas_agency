@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.finance__main{
+    
+    display: flex;
+    height: 100vh;
+    
+}
+
+.finance__container{
+    /* border: 2px solid green; */
+    overflow-y: scroll;
+    
+    width: 100%;
+    background-color: #F5F5F5;
+}
+
+.finance_main_container{
+    background-color: white;
+    width: 80%;
+    margin: 30px 50px;
+    
+   
+    /* border: 2px solid red; */
+}
+
+.finance_progressbar_container{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+.finance_both_table{
+      width: 90%;
+      margin: auto;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      
+      min-height: 430px;
+      max-height: 430px;
+      
+      
+}
+
+.finance_amount_receivable_table{
+    flex: 0.45;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    overflow-y: scroll;
+    padding-bottom: 30px;
+}
+
+.finance_amount_payable_table{
+    flex: 0.45;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    overflow-y: scroll;
+    padding-bottom: 30px;
+}
+
+.finance_receivable_company{
+    margin-top: 15px;
+}
+
+.finance_payable_company{
+    margin-top: 15px;
+}
+
+.finance_amount_receivable_table small{
+    padding: 0px;
+}

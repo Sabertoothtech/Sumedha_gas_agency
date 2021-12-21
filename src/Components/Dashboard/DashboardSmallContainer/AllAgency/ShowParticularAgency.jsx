@@ -7,7 +7,7 @@ function ShowParticularAgency({setShowAgencyBool}) {
     <div className="show_particular_agency__main">
       <div className="show_particular_agency__nameedit">
         <strong>Agency</strong>
-        <CloseIcon style={{color:"red", cursor:"pointer"}} onClick={()=> setShowAgencyBool(false)} />
+        <CloseIcon style={{ cursor:"pointer"}} onClick={()=> setShowAgencyBool(false)} />
       </div>
       <small style={{ color: "gray", margin: "0px", padding: "0px" }}>
         About

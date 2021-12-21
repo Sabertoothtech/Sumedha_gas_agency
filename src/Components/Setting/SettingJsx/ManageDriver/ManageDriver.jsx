@@ -26,6 +26,7 @@ function ManageDriver(props) {
         // console.log(res.data[18].name)
         const ddname = res.data.map((dname, idx) => ({
           drivername: dname.name,
+          driverid:dname.id
         }));
         setShowDriverName(ddname);
       })
@@ -43,10 +44,10 @@ function ManageDriver(props) {
         Manage Driver
       </small>
       {showDriverName.map((name, id) => (
-        <div className="manage_driver_name_icon">
+        <div key={id} className="manage_driver_name_icon">
           <small>{name.drivername}</small>
           <div className="manage_icon">
-            <EditIcon onClick={() => props.setupdatePopUp(true)} />
+            <EditIcon   onClick={() =>{ props.setupdatePopUp(true); props.setUpDriverId(name.driverid) }} />
             <DeleteIcon />
           </div>
         </div>
