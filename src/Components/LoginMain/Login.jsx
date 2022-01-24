@@ -43,7 +43,7 @@ function Login() {
                     <div className="logo_box">
                         <div className="logo_img">
                             <img src={logo} alt="logo" />
-                            <h3 style={{ color: "	#000080", fontSize: "30px" }}>SUMEDHA</h3>
+                            <h3>SUMEDHA</h3>
                         </div>
                     </div>
                     <strong style={{ color: "red", fontSize: "10px" }}>{error}</strong>
@@ -53,7 +53,7 @@ function Login() {
                         <label htmlFor="">Password</label>
                         <input onChange={(e) => setPassword(e.target.value)} type="password" name="pass" />
                     </div>
-                    <button onClick={loginBtnClick} style={{ backgroundColor: "#000080", color: "white", fontSize:"12px", fontWeight:"600",padding:"12px 60px" }}>
+                    <button onClick={loginBtnClick} className="login_button" >
                         LOGIN
                     </button>
                 </div>

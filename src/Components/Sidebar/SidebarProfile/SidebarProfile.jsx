@@ -90,7 +90,7 @@ function SidebarProfile() {
           {iconData.map((icon, idx) => (
             <li key={idx} className={icon.className}>
               <NavLink
-                activeStyle={{ color: "rgb(34, 9, 146)", fontWeight:"570"}}
+                activeStyle={{ color: "rgb(34, 9, 146)", fontWeight:"bolder"}}
                 to={icon.path}
               >
                 <icon.icon size={25} style={{color:"gray"}}/>

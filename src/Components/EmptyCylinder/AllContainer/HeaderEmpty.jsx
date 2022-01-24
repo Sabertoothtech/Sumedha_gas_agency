@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 // import { margin } from '@mui/system';
 
-function DashboardHeader() {
+function DashboardHeader({setchangeSelectOption,changeSelectOption}) {
   const dth = {
     width: "95%",
     margin: "auto",
@@ -22,14 +22,15 @@ function DashboardHeader() {
     textTransform: "capitalize",
   };
 
+
   return (
     <div style={dth} className="DashboardHeader__main">
       <p style={{ fontSize: "25px", letterSpacing: "1px" }}>Empty Cylinder</p>
 
-      <select style={{backgroundColor:"white", marginLeft:"10px",padding:"6px 15px", borderColor:"gray", paddingRight:"30px"}} name="" id="">
-          <option value="">In stock</option>
-        <option value="">To collect</option>
-        <option value="">In transit</option>
+      <select value={changeSelectOption}  onChange={(e)=> setchangeSelectOption(e.target.value)} style={{backgroundColor:"white", marginLeft:"10px",padding:"6px 15px", borderColor:"gray", paddingRight:"30px"}} name="" id="">
+        <option value="In stock">In stock</option>
+        <option value="To collect">To collect</option>
+        <option value="In transit">In transit</option>
       </select>
     
 
