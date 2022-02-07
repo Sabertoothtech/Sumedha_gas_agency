@@ -1,0 +1,33 @@
+/* .manage_vandor_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+} */
+
+.all_vendor_list{
+    width: 100%;
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+}
+
+.vendor_name_data{
+border: 1px solid gray;
+display: flex;
+border-radius: 8px;
+align-items: center;
+justify-content: space-between;
+width: 95%;
+margin-left: 10px;
+margin-bottom: 20px;
+}
+
+.manage_vendor_icon{
+    color: gray;
+    padding-right: 10px;
+
+}
+.icon-vendor{
+    margin-right: 10px;
+}

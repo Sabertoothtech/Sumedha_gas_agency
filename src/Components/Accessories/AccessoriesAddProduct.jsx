@@ -12,7 +12,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
   const accessories__main = {
     boxShadow:
       "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
-    width: "350px",
+    width: "400px",
     height: "450px",
     borderRadius: "10px",
     marginTop: "15px",

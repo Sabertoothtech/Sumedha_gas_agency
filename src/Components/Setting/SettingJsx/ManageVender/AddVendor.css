@@ -1,0 +1,6 @@
+.ram{
+    width: 100%;
+    border: 2px solid red;
+    min-height: 80vh;
+    z-index: 999;
+}

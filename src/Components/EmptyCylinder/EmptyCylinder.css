@@ -50,3 +50,18 @@
   margin: 0px;
   padding: 0px;
 }
+
+td{
+  border:none;
+}
+td{
+  /* border: 2px solid red; */
+  padding-top: 10px;
+}
+th{
+  border:none;
+}
+
+tr{
+  margin-top: 10px;
+}

@@ -1,14 +1,39 @@
 import { borderRadius } from "@mui/system";
-import React from "react";
+import React,{useState} from "react";
+import axios from "axios";
 import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
+import {postAPIFilleDCylinder} from '../../../Utils/utils'
 
 function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
+  const [increDecre, setincreDecre] = useState(1)
+  const [postDataFilled, setpostDataFilled] = useState(1)
   const add_entry_filled_cylinder__main = {
     minHeight: "80vh",
     display: "flex",
     justifyContent: "center",
   };
+
+  const postAPI = async() =>{
+    var FormDatas = new FormData();
+    FormDatas.append("filled_cylinder_quantity",JSON.stringify([{"cylinder_type_id": postDataFilled,"quantity": increDecre}]));
+    // FormDatas.append();
+    
+
+    await axios({
+      method: "post",
+      url: postAPIFilleDCylinder,
+
+      data: FormDatas,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Token ${sessionStorage.getItem("token")}`,
+      },
+    }).then(res=>{
+      alert(res.data)
+    }).catch(err=> alert(err))
+
+  }
 
   const add_entry_filled_cylinder__container = {
     boxShadow:
@@ -50,17 +75,29 @@ function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
           <label style={input_lable_fc} htmlFor="">
             Select Type of Cylinder
           </label>
-          <input style={input_lable_fc} type="text" /> <br />
+
+          <select value={postDataFilled} onChange={(e)=>setpostDataFilled(e.target.value)} style={{width:"75%", height:"30px", backgroundColor:"#fff",borderRadius: "5px",}} >
+            <option value="1">Domestic 15kg</option>
+            <option value="2">Commercial 21kg</option>
+            <option value="3">Commercial/VOT/LOT 33kg</option>
+            <option value="4">Commercial/LOT 45kg</option>
+           
+          </select>
+          
+          <button onClick={()=> setincreDecre(increDecre-1)} style={{borderRadius:"5px",width:"27px",background:"#fff",border:"0.5px solid gray",cursor:"pointer", height:"30px", marginLeft:"3px"}}>-</button>
+          <span style={{color:"black"}}>{increDecre}</span>
+          <button onClick={()=> setincreDecre(increDecre+1)} style={{borderRadius:"5px",width:"27px",background:"#fff",border:"0.5px solid gray",cursor:"pointer", height:"30px", marginLeft:"3px"}}>+</button>
+      
           <br />
-          <label style={input_lable_fc} htmlFor="">
+          {/* <label style={input_lable_fc} htmlFor="">
             Ouantity
           </label>
-          <input style={input_lable_fc} type="text" /> <br />
+          <input style={input_lable_fc} type="text" /> <br /> */}
           <br />
-          <label style={input_lable_fc} htmlFor="">
+          {/* <label style={input_lable_fc} htmlFor="">
             Date
           </label>
-          <input style={input_lable_fc} type="text" /> <br /><br />
+          <input style={input_lable_fc} type="text" /> <br /><br /> */}
           <br />
           <div
             style={{
@@ -69,7 +106,7 @@ function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
               alignItems: "center",
             }}
           >
-            <Button style={{padding:" 8px 60px", textTransform:"capitalize"}} variant="contained" color="success">
+            <Button onClick={postAPI} style={{padding:" 8px 60px", textTransform:"capitalize"}} variant="contained" color="success">
               Save
             </Button>
           </div>

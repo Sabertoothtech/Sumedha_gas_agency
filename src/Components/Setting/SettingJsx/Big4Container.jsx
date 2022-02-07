@@ -6,27 +6,35 @@ function Big4Container(props) {
         activeObject: null,
         objects: [
             {
-                id: 1,
+                id: 0,
                 title: "Get Help"
             },
             {
-                id: 2,
+                id: 1,
                 title: "Manage agency/company"
             },
             {
-                id: 3,
+                id: 2,
                 title: "Manage driver"
             },
             {
-                id: 4,
+                id: 3,
                 title: "Set gas price"
             },
             {
+                id: 4,
+                title: "Discount Price"
+            },
+            {
                 id: 5,
-                title: "Cost of empty cylinder"
+                title: "Manage Vendor"
             },
             {
                 id: 6,
+                title: "Cost of empty cylinder"
+            },
+            {
+                id: 7,
                 title: "Change password"
             },
         ]

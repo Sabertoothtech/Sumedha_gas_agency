@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.update_vendor_container{
+    /* border: 2px solid red; */
+    width: 100%;
+    min-height: 80vh;
+    
+}
+
+.update_vendor_item{
+    border-radius: 15px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    width: 90%;
+    min-height: 70vh;
+    margin: auto;
+    margin-top: 20px;
+    
+}
+
+.right_vendor_update{
+    /* border: 2px solid gold; */
+
+}
+.left_vendor_update{
+    /* border: 2px solid gold; */
+    
+}
+.update_vend0r_all_info{
+    
+    display: flex;
+    justify-content: space-around;
+    
+   
+
+}
+input{
+    margin: 0px;
+    padding: 0px;
+    width: 350px;
+    padding: 15px 0px;
+    border: 1px solid gray;
+    padding-left: 5px;
+}
+label{
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 20px;
+    color: grey;
+}
+

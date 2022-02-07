@@ -38,13 +38,15 @@
 .filled_cylinder_changeable_box {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 8px;
-  overflow-y: scroll;
+  
   max-height: 430px;
   flex: 0.3;
   padding: 10px;
   display: flex;
   flex-direction: column;
   margin-right: 10px;
+  overflow-y: scroll;
+  /* background-color: blue; */
 }
 .filled_cylinder_table {
   display: flex;

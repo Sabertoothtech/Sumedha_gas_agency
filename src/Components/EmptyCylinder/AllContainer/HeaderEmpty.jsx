@@ -1,8 +1,12 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Button from "@mui/material/Button";
-// import { margin } from '@mui/system';
+// import APIdataSelectChange from '../EmptyCylinder'
+import axios from "axios";
+import { empty_instock } from "../../../Utils/utils";
 
-function DashboardHeader({setchangeSelectOption,changeSelectOption}) {
+
+function DashboardHeader({emptySelectAPIChange,setemptySelectAPIChange}) {
+
   const dth = {
     width: "95%",
     margin: "auto",
@@ -24,17 +28,19 @@ function DashboardHeader({setchangeSelectOption,changeSelectOption}) {
 
 
   return (
+    
     <div style={dth} className="DashboardHeader__main">
       <p style={{ fontSize: "25px", letterSpacing: "1px" }}>Empty Cylinder</p>
 
-      <select value={changeSelectOption}  onChange={(e)=> setchangeSelectOption(e.target.value)} style={{backgroundColor:"white", marginLeft:"10px",padding:"6px 15px", borderColor:"gray", paddingRight:"30px"}} name="" id="">
-        <option value="In stock">In stock</option>
-        <option value="To collect">To collect</option>
-        <option value="In transit">In transit</option>
+      <select onChange={(e)=>setemptySelectAPIChange(e.target.value)} style={{backgroundColor:"white", marginLeft:"10px",padding:"6px 15px", borderColor:"gray", paddingRight:"30px"}} value={emptySelectAPIChange} id="">
+        <option value="empty_cylinder_in_stock">In stock</option>
+        <option value="empty_cylinder_to_collect">To collect</option>
+        <option value="empty_cylinder_in_transit">In transit</option>
       </select>
-    
+   {emptySelectAPIChange}
 
     </div>
+  
   );
 }
 

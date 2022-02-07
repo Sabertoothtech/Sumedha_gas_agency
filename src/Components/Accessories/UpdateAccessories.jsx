@@ -8,11 +8,16 @@ import {updateEccessoriesAPI} from '../../Utils/utils'
 function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
 
   const [updateAccessData, setUpdateAccessData] = useState([])
+  const [name, setname] =useState("")
+  const [quantity, setquantity] =useState("")
+  const [price, setprice] =useState("")
+  const [file, setfile] =useState("")
+  const [id, setid] =useState("")
  
   const accessories__main = {
     boxShadow:
       "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
-    width: "350px",
+    width: "400px",
     height: "450px",
     borderRadius: "10px",
     marginTop: "15px",
@@ -28,8 +33,9 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
   const input_all = {
     margin: "0px",
     padding: "0px",
-    border: "2px solid gray",
+    border: "1px solid gray",
     display: "flex",
+    paddingLeft:"5px"
   };
   const accessories_icon = {
     display: "flex",
@@ -47,12 +53,14 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
       },
     })
       .then(function (response) {
-        setUpdateAccessData({
-          product_name:response.data.product_name,
-          quantity:response.data.quantity,
-          price:response.data.price,
-          product_image:response.data.product_image,
-        })
+       
+          setid(response.data.id)
+          setname(response.data.product_name)
+          setquantity(response.data.quantity)
+          setprice(response.data.price)
+          setfile(response.data.product_image)
+        
+        
       })
       .catch(function (error) {
         console.log(error);
@@ -61,15 +69,15 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
   }, [])
 
 
-  const ApiCallSave = () => {
+  const ApiCallSave = async() => {
     var FormDatas = new FormData();
-    // FormDatas.append("product_name", proName);
-    // FormDatas.append("quantity", proOunatity);
-    // FormDatas.append("price", proPrice);
-    // FormDatas.append("product_image", proImage);
-
-    axios({
-      method: "post",
+    FormDatas.append("product_name",name);
+    FormDatas.append("quantity",quantity );
+    FormDatas.append("price",price );
+    FormDatas.append("product_image",file);
+    FormDatas.append("accessories_id",id );
+    await axios({
+      method: "PUT",
       url: "http://45.79.121.178:8000/accessories/",
 
       data: FormDatas,
@@ -83,6 +91,7 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
       })
       .catch(function (error) {
         alert(error.response.data[0].Message +" All field Are Required");
+     
       });
   };
 
@@ -102,11 +111,22 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
           </strong>
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label htmlFor="">Product Name:</label>
+          <label htmlFor="">Product id:</label>
           <input
             style={input_all}
             type="text"
-            defaultValue={updateAccessData.product_name} 
+            value={id} 
+            // onChange={(e)=> setUpdateAccessData(e.target.value)}
+          />
+        </div>
+        
+        <div style={{ margin: "auto", width: "90%" }}>
+          <label htmlFor="">Product name:</label>
+          <input
+            style={input_all}
+            type="text"
+            defaultValue={name} 
+            onChange={(e)=> {setname(e.target.value)}}
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
@@ -114,7 +134,8 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
           <input
             style={input_all}
             type="text"
-            defaultValue={updateAccessData.quantity}
+            defaultValue={quantity}
+            onChange={(e)=> setquantity(e.target.value)}
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
@@ -122,7 +143,8 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
           <input
             style={input_all}
             type="text"
-            defaultValue={updateAccessData.price}
+            defaultValue={price}
+            onChange={(e)=> setprice(e.target.value)}
           />
         </div>
         <div style={{ margin: "auto", width: "90%", outline: "2px red" }}>
@@ -130,6 +152,8 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
           <input
             style={input_all}
             type="file"
+            onChange={(e) => setfile(e.target.files[0])}
+            defaultValue={file}
           />
         </div>
         <Button

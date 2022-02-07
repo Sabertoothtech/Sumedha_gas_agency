@@ -5,12 +5,52 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import { addDriverAPI } from "../../../../Utils/utils";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ManageDriver(props) {
   const [showDriverName, setShowDriverName] = useState([]);
 
   const addDriverClick = () => {
     props.setdriverPopUp(true);
+  };
+
+  const deleteAPI = async(id) => {
+    var FormDatas = new FormData();
+    FormDatas.append("driver_id", id);
+    const config = {
+      url: addDriverAPI,
+      method: "delete",
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Token ${sessionStorage.getItem("token")}`,
+      },
+      data: FormDatas,
+    };
+    await axios(config)
+      .then((res) => {
+        console.log(res)
+        toast.success('Driver sucessfully deleted', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      })
+      .catch((err) => {
+        toast.error('Something went wrong', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      });
   };
 
   useEffect(() => {
@@ -48,7 +88,7 @@ function ManageDriver(props) {
           <small>{name.drivername}</small>
           <div className="manage_icon">
             <EditIcon   onClick={() =>{ props.setupdatePopUp(true); props.setUpDriverId(name.driverid) }} />
-            <DeleteIcon />
+            <DeleteIcon onClick={()=> deleteAPI(name.driverid)} />
           </div>
         </div>
       ))}
@@ -66,6 +106,7 @@ function ManageDriver(props) {
           Add Driver
         </Button>
       </div>
+      <ToastContainer />
     </div>
   );
 }

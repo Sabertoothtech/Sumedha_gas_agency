@@ -68,7 +68,7 @@ function SidebarProfile() {
         {/* <img alt="{jj}" style={{borderRadius: "50%", width:"1000px", height:"500px"}} width="80px" src="https://static.remove.bg/remove-bg-web/126e8851f6e88bf644890fafdf1b0d82aff0629e/assets/start-1abfb4fe2980eabfbbaaa4365a0692539f7cd2725f324f904565a9a744f8e214.jpg" /> */}
         <small>John Cena</small>
         <br />
-        <NavLink id="nav_profile" to="/profile">
+        <NavLink style={{fontWeight:"600"}} id="nav_profile" to="/profile">
           Profile
         </NavLink>
       </div>
@@ -91,10 +91,11 @@ function SidebarProfile() {
             <li key={idx} className={icon.className}>
               <NavLink
                 activeStyle={{ color: "rgb(34, 9, 146)", fontWeight:"bolder"}}
+                style={{color: "gray",fontWeight:"500"}}
                 to={icon.path}
               >
-                <icon.icon size={25} style={{color:"gray"}}/>
-                <small style={{fontWeight:"500", letterSpacing: "1px" }}>
+                <icon.icon size={25}   />
+                <small style={{ letterSpacing: "1px" }}>
                   {icon.name}
                 </small>
               </NavLink>

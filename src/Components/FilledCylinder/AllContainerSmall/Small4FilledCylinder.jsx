@@ -3,7 +3,7 @@ import React from 'react'
 import MovingIcon from '@mui/icons-material/Moving';
 import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 
-function ThreeSmallContainer({trandingicon,bgcolor,color}) {
+function ThreeSmallContainer({trandingicon,bgcolor,color,data,name,kg,kg1,data1}) {
     const tscm = {
         width: "230px",
         height: "90px",
@@ -35,13 +35,13 @@ function ThreeSmallContainer({trandingicon,bgcolor,color}) {
     return (
         <div style={tscm} className="three_small_container__main">
             <div style={ three_small_container_text }>
-                <small style={{margin:"0px",padding:"0px", marginTop:"0px",fontSize:"13px", fontWeight:"350"}}>Total sales</small>
-                <span style={{margin:"0px",padding:"0px"}}>23456</span>
+                <small style={{margin:"0px",padding:"0px", marginTop:"0px",fontSize:"13px", fontWeight:"350"}}>{name}</small>
+                <span style={{margin:"0px",padding:"0px"}}>{data+data1}</span>
                 <div className="three_small_container_row_text">
-                    <small style={{margin:"0px",padding:"0px",  fontSize:"10px", fontWeight:"350",color:color}}>+21kg</small>
-                    <small style={{margin:"0px",padding:"0px", marginRight:"10px", fontSize:"10px", fontWeight:"350"}}>2000</small>
-                    <small style={{margin:"0px",padding:"0px",  fontSize:"10px", fontWeight:"350",color:color}}>VOT/LOT/33 </small>
-                    <small style={{margin:"0px",padding:"0px", marginTop:"0px", fontSize:"10px", fontWeight:"350"}}>1000</small>
+                    <small style={{margin:"0px",padding:"0px",  fontSize:"10px", fontWeight:"350",color:color}}>{kg}</small>
+                    <small style={{margin:"0px",padding:"0px", marginRight:"10px", fontSize:"10px", fontWeight:"350"}}>{data}</small>
+                    <small style={{margin:"0px",padding:"0px",  fontSize:"10px", fontWeight:"350",color:color}}>{kg1}</small>
+                    <small style={{margin:"0px",padding:"0px", marginTop:"0px", fontSize:"10px", fontWeight:"350"}}>{data1}</small>
                 </div>
             </div>
             <div style={three_small_container_icon}>
