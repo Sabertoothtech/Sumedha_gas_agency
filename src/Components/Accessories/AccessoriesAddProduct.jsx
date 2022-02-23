@@ -28,8 +28,14 @@ function AccessoriesAddProduct({ setAddProduct }) {
   const input_all = {
     margin: "0px",
     padding: "0px",
-    border: "2px solid gray",
+    border: "1px solid gray",
     display: "flex",
+    padding: "8px 10px",
+    borderRadius: "5px",
+    outline:"none"
+  };
+  const label_all = {
+    fontSize:"small"
   };
   const accessories_icon = {
     display: "flex",
@@ -54,10 +60,10 @@ function AccessoriesAddProduct({ setAddProduct }) {
       },
     })
       .then(function (response) {
-        alert(response.data)
+        alert(response.data);
       })
       .catch(function (error) {
-        alert(error.response.data[0].Message +" All field Are Required");
+        // alert(error.response.data[0].Message + " All field Are Required");
       });
   };
   return (
@@ -75,7 +81,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
           </strong>
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label htmlFor="">Product Name: </label>
+          <label style={label_all} htmlFor="">Product Name: </label>
           <input
             onChange={(e) => setProName(e.target.value)}
             style={input_all}
@@ -83,7 +89,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label htmlFor="">Ouantity: </label>
+          <label style={label_all} htmlFor="">Ouantity: </label>
           <input
             onChange={(e) => setProOunatity(e.target.value)}
             style={input_all}
@@ -91,15 +97,15 @@ function AccessoriesAddProduct({ setAddProduct }) {
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label htmlFor="">Price: </label>
+          <label style={label_all} htmlFor="">Price: </label>
           <input
-            onChange={(e) => setProPrice (e.target.value)}
+            onChange={(e) => setProPrice(e.target.value)}
             style={input_all}
             type="text"
           />
         </div>
-        <div style={{ margin: "auto", width: "90%", outline: "2px red" }}>
-          <label htmlFor="">Product Image: </label>
+        <div style={{ margin: "auto", width: "90%" }}>
+          <label style={label_all} htmlFor="">Product Image: </label>
           <input
             style={input_all}
             type="file"

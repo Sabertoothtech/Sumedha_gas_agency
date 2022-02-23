@@ -35,7 +35,13 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
     padding: "0px",
     border: "1px solid gray",
     display: "flex",
-    paddingLeft:"5px"
+   
+    padding:"8px 10px",
+    borderRadius: "5px",
+    outline:"none"
+  };
+  const label_all = {
+    fontSize:"small"
   };
   const accessories_icon = {
     display: "flex",
@@ -111,7 +117,7 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
           </strong>
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label htmlFor="">Product id:</label>
+          <label style={label_all} htmlFor="">Product id:</label>
           <input
             style={input_all}
             type="text"
@@ -121,7 +127,7 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
         </div>
         
         <div style={{ margin: "auto", width: "90%" }}>
-          <label htmlFor="">Product name:</label>
+          <label style={label_all} htmlFor="">Product name:</label>
           <input
             style={input_all}
             type="text"
@@ -130,7 +136,7 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label htmlFor="">Ouantity: </label>
+          <label style={label_all} htmlFor="">Ouantity: </label>
           <input
             style={input_all}
             type="text"
@@ -139,7 +145,7 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label htmlFor="">Price: </label>
+          <label style={label_all} htmlFor="">Price: </label>
           <input
             style={input_all}
             type="text"
@@ -148,7 +154,7 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
           />
         </div>
         <div style={{ margin: "auto", width: "90%", outline: "2px red" }}>
-          <label htmlFor="">Product Image:{updateAccessData.product_image}</label>
+          <label style={label_all} htmlFor="">Product Image:{updateAccessData.product_image}</label>
           <input
             style={input_all}
             type="file"

@@ -4,6 +4,8 @@ import { useHistory, Redirect } from 'react-router';
 import { LoginAPI } from '../../Utils/utils';
 import axios from 'axios';
 import './Login.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
     const history = useHistory()
@@ -27,7 +29,10 @@ function Login() {
                 .then((res) => {
 
                     if (res.data.token) {
+                       if(res.status===200){
                         sessionStorage.setItem('token', res.data.token)
+                       }
+                        
                     }
                     window.location = "/dashboard";
                 })
@@ -48,16 +53,17 @@ function Login() {
                     </div>
                     <strong style={{ color: "red", fontSize: "10px" }}>{error}</strong>
                     <div className="input_box">
-                        <label htmlFor="">UserName</label>
-                        <input onChange={(e) => setEmail(e.target.value)} type="text" name="email" />
-                        <label htmlFor="">Password</label>
-                        <input onChange={(e) => setPassword(e.target.value)} type="password" name="pass" />
+                        <label className='label-login' htmlFor="">UserName</label>
+                        <input className='input-login' onChange={(e) => setEmail(e.target.value)} type="text" name="email" />
+                        <label className='label-login' htmlFor="">Password</label>
+                        <input className='input-login' onChange={(e) => setPassword(e.target.value)} type="password" name="pass" />
                     </div>
                     <button onClick={loginBtnClick} className="login_button" >
                         LOGIN
                     </button>
                 </div>
             </div>
+            <ToastContainer/>
         </>
     )
 }

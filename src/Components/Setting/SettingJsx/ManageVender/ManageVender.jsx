@@ -72,13 +72,13 @@ function ManageVender({
         }
       })
       .catch((err) => {
-        alert("err");
+        // alert("err");
       });
   };
 
   useEffect(() => {
     getAPI();
-  }, [deleteAPI]);
+  }, []);
   return (
     <div className="manage_vandor_container">
       <small style={{ color: "gray", fontSize: "small" }}>Manage Vendor</small>

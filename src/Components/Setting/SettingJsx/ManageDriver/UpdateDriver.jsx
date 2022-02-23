@@ -69,7 +69,7 @@ function UpdateDriver({ setShowCon, setShowupdateCon, udDriverId }) {
       .then((res) => {
         alert(res.data);
       })
-      .catch((err) => alert(err));
+      // .catch((err) => alert(err));
   };
   return (
     <div className=" add_driver__main">
@@ -84,96 +84,85 @@ function UpdateDriver({ setShowCon, setShowupdateCon, udDriverId }) {
         <strong>Update Driver</strong>
         <div className="add_driver_driverData">
           <div className="add_driver_left_data">
-            <label htmlFor="">Name:</label>
+            <label className="update_driver_label" htmlFor="">Name:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+              className="update_driver_class"
               onChange={(e) => setAdName(e.target.value)}
               defaultValue={adname}
               type="text"
             />
-            <br />
-            <br />
+            
 
-            <label htmlFor="">Driver Id:</label>
+            <label className="update_driver_label" htmlFor="">Driver Id:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+             className="update_driver_class"
               onChange={(e) => setAdDriverId(e.target.value)}
               defaultValue={adDriverId}
               type="text"
             />
-            <br />
-            <br />
+            
 
-            <label htmlFor="">Employee Id:</label>
+            <label className="update_driver_label" htmlFor="">Employee Id:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+             className="update_driver_class"
               onChange={(e) => setAdEmpId(e.target.value)}
               defaultValue={adEmpId}
               type="text"
             />
-            <br />
-            <br />
+            
 
-            <label htmlFor="">Driving licence no:</label>
+            <label className="update_driver_label" htmlFor="">Driving licence no:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+             className="update_driver_class"
               onChange={(e) => setAdDLN(e.target.value)}
               defaultValue={adDLN}
               type="text"
             />
-            <br />
-            <br />
+            
 
-            <label htmlFor="">Email:</label>
+            <label className="update_driver_label" htmlFor="">Email:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+             className="update_driver_class"
               onChange={(e) => setAdEmail(e.target.value)}
               defaultValue={adEmail}
               type="text"
             />
-            <br />
-            <br />
+            
           </div>
           <div className="add_driver_right_data">
-            <label htmlFor="">Contact no:</label>
+            <label className="update_driver_label" htmlFor="">Contact no:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+             className="update_driver_class"
               onChange={(e) => setAdContact(e.target.value)}
               defaultValue={adContact}
               type="text"
             />
-            <br />
-            <br />
+            
 
-            <label htmlFor="">Alternate contact no:</label>
+            <label className="update_driver_label" htmlFor="">Alternate contact no:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+             className="update_driver_class"
               onChange={(e) => setAdACN(e.target.value)}
               defaultValue={adACN}
               type="text"
             />
-            <br />
-            <br />
+            
 
-            <label htmlFor="">Alloted vehicle no:</label>
+            <label className="update_driver_label" htmlFor="">Alloted vehicle no:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+             className="update_driver_class"
               onChange={(e) => setAdAVN(e.target.value)}
               defaultValue={adAVN}
               type="text"
             />
-            <br />
-            <br />
+            
 
-            <label htmlFor="">Password:</label>
+            <label className="update_driver_label" htmlFor="">Password:</label>
             <input
-              style={{ border: "1px solid gray", paddingLeft: "5px" }}
+             className="update_driver_class"
               onChange={(e) => setAdPass(e.target.value)}
               type="text"
             />
-            <br />
-            <br />
-            <br />
 
             <Button
               onClick={addDriverClick}

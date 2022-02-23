@@ -5,12 +5,48 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import { getAgencyAPI } from "../../../../Utils/utils";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ManageAgency(props) {
   const [nameagencyArray, setnameagencyArray] = useState([]);
 
-  const addDriverClick = () => {
-    props.setdriverPopUp(true);
+  const agencyDelete = async (id) => {
+    var FormDatas = new FormData();
+    FormDatas.append("agency_id", id);
+    const config = {
+      url: getAgencyAPI,
+      method: "delete",
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Token ${sessionStorage.getItem("token")}`,
+      },
+      data: FormDatas,
+    };
+    await axios(config)
+      .then((res) => {
+        console.log(res);
+        toast.success("Agency sucessfully deleted", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      })
+      .catch((err) => {
+        toast.error("Something went wrong", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
 
   useEffect(() => {
@@ -26,7 +62,7 @@ function ManageAgency(props) {
         setnameagencyArray(
           res.data.map((aname, idx) => ({
             agency_name: aname.data.agency_details.agency_name,
-            agency_id: aname.data.agency_details.agency_id,
+            agency_id: aname.data.agency_details.id,
           }))
         );
       })
@@ -48,8 +84,13 @@ function ManageAgency(props) {
         <div className="manage_driver_name_icon">
           <small>{name.agency_name}</small>
           <div className="manage_icon">
-            <EditIcon onClick={() => props.setupdatePopUp(true)} />
-            <DeleteIcon />
+            <EditIcon
+              style={{
+                marginRight: "10px",
+              }}
+              onClick={()=> {props.setshowupdateAgency(true);props.setuagencyId(name.agency_id)}}
+            />
+            <DeleteIcon onClick={() => agencyDelete(name.agency_id)} />
           </div>
         </div>
       ))}
@@ -60,14 +101,15 @@ function ManageAgency(props) {
             fontSize: "10px",
             fontWeight: "600",
             textTransform: "capitalize",
-            padding:"8px 50px"
+            padding: "8px 50px",
           }}
-          onClick={()=>props.setshowAddAgency(true)}
+          onClick={() => props.setshowAddAgency(true)}
           variant="contained"
         >
           Add new
         </Button>
       </div>
+      <ToastContainer />
     </div>
   );
 }

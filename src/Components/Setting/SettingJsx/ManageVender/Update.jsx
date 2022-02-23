@@ -3,6 +3,8 @@ import "./Update.css";
 import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import { getvendot_by_IDAPi } from "../../../../Utils/utils";
 import { getvendorAPI } from "../../../../Utils/utils";
 
@@ -44,7 +46,7 @@ function Update({ vendorupdateID, setshowUpdateVendor }) {
         )
       })
       .catch((err) => {
-        alert("err");
+        // alert("err");
       });
   };
 
@@ -71,10 +73,18 @@ function Update({ vendorupdateID, setshowUpdateVendor }) {
     };
     await axios(config)
       .then((res) => {
-       alert(res.data)
+        toast.success("Sucuss", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
       })
       .catch((err) => {
-        alert("err");
+        
       });
   };
 
@@ -144,7 +154,7 @@ function Update({ vendorupdateID, setshowUpdateVendor }) {
             <input onChange={changeValue} name="id" value={updatedatavendor.id} type="text" />
             <Button
               onClick={updateAPI}
-              style={{ width: "350px", marginTop: "30px", display: "block" }}
+              style={{ width: "350px", marginTop: "35px", display: "block" }}
               variant="contained"
               color="success"
             >
@@ -153,6 +163,7 @@ function Update({ vendorupdateID, setshowUpdateVendor }) {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 }

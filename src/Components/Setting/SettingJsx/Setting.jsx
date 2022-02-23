@@ -15,16 +15,21 @@ import CostOfEmptyCylinder from '../../Setting/SettingJsx/CostOfEmptyCylinder/Co
 import ManageVender from './ManageVender/ManageVender'
 import Update from './ManageVender/Update'
 import AddVendor from './ManageVender/AddVendor'
+import ChangePassword from './ChangePassword/ChangePassword'
+import UpdateAgency from './ManageAgency/UpdateAgency'
 
 function Setting() {
     const [showContainer, setShowContainer] = useState(0)
     const [showAddDriver, setshowAddDriver] = useState(false)
     const [showAddAgency, setshowAddAgency] = useState(false)
+    const [showUpdateAgency, setshowupdateAgency] = useState(false)
     const [showUpdateDriver, setshowUpdateDriver] = useState(false)
     const [showUpdateVendor, setshowUpdateVendor] = useState(false)
     const [showAddeVendor, setshowAddVendor] = useState(false)
+    
     // Update Driver const
     const [udDriverId, setUpDriverId] = useState("")
+    const [uagencyId, setuagencyId] = useState(null)
     const [vendorupdateID, setvendorupdateID] = useState(null)
     return (
         <div className="setting__main">
@@ -41,6 +46,7 @@ function Setting() {
                     {/* {showUpdateVendor ? <Update setshowUpdateVendor={setshowUpdateVendor} /> : ""} */}
                     {showUpdateVendor ? <Update vendorupdateID={vendorupdateID} setshowUpdateVendor={setshowUpdateVendor} /> : ""}
                     {showAddeVendor ? <AddVendor setshowAddVendor={setshowAddVendor} /> : ""}
+                    {showUpdateAgency? <UpdateAgency uagencyId={uagencyId} setshowupdateAgency={setshowupdateAgency}/>:""}
 
                     <div className="setting_container__both_container">
                     
@@ -48,12 +54,13 @@ function Setting() {
                         </div>
                         <div className="setting_1big_container">
                             {showContainer === 0 && <GetHelp n={showContainer} />}
-                            {showContainer === 1 && <ManageAgency setshowAddAgency={setshowAddAgency} />}
+                            {showContainer === 1 && <ManageAgency setuagencyId={setuagencyId} setshowupdateAgency={setshowupdateAgency} setshowAddAgency={setshowAddAgency} />}
                             {showContainer === 2 && <ManageDriver setUpDriverId={setUpDriverId} setdriverPopUp={setshowAddDriver} setupdatePopUp={setshowUpdateDriver} />}
                             {showContainer === 3 && <SetGasPrice/> }
                             {showContainer === 4 && <DiscountPrice/> }
                             {showContainer === 5 && <ManageVender setshowUpdateVendor={setshowUpdateVendor} setvendorupdateID={setvendorupdateID} setshowAddVendor={setshowAddVendor}/> }
                             {showContainer === 6 && <CostOfEmptyCylinder/> }
+                            {showContainer === 7 && <ChangePassword/> }
                             
 
                         </div>

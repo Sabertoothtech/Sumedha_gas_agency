@@ -1,4 +1,27 @@
 .updatedriverbtn{
     /* border: 2px solid red; */
-    width: 100%;
+    width: 85%;
+    margin-top: 10px;
+}
+.update_driver_driverData{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.update_driver_class{
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid gray;
+    padding: 8px 10px;
+    border-radius: 5px;
+    /* background-color: aqua; */
+    margin-bottom: 25px;
+    
+}
+
+.update_driver_label{
+    margin: 0px;
+    padding: 0px;
+    font-size: small;
 }

@@ -37,7 +37,6 @@ function DashboardHeader({emptySelectAPIChange,setemptySelectAPIChange}) {
         <option value="empty_cylinder_to_collect">To collect</option>
         <option value="empty_cylinder_in_transit">In transit</option>
       </select>
-   {emptySelectAPIChange}
 
     </div>
   

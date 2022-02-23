@@ -1,6 +1,8 @@
 import React, { useEffect,useState } from "react";
 import axios from "axios";
 import Button from "@mui/material/Button";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import { costofemptycylinderAPI } from "../../.././../Utils/utils";
 
 function CostOfEmptyCylinder() {
@@ -26,7 +28,7 @@ function CostOfEmptyCylinder() {
         }
       })
       .catch((err) => {
-        alert(err);
+        // alert(err);
       });
   };
 
@@ -34,32 +36,62 @@ function CostOfEmptyCylinder() {
     let newArr = [...costofData];
     let name_inp = e.target.name;
     let value = e.target.value;
-    newArr[index] = value;
-
+    // if (name_inp === "name"){
+    //   newArr[index].amount = value;
+    // } else if (name_inp === "name1") {
+    //   newArr[index].cgst = value;
+    // } else {
+    //   newArr[index].sgst = value;
+    // }
+    newArr[index].cost=value
     setcostofData(newArr);
+    
   };
 
 const postAPI = async() => {
-  // var FormDatas = new FormData();
-  // costofData.map((ele) => ({
-  //   FormDatas.append("cylinder_type_id":5)
-  //   FormDatas.append("cost":45)
-  // }))
+  var FormDatas = new FormData();
+  FormDatas.append(
+    "cost_of_empty_cylinder",
+    JSON.stringify(
+      costofData.map((data) => ({
+        cylinder_type_id: data.id,
+        amount: data.cost,
+      }))
+    ))
   
   const config = {
     url: costofemptycylinderAPI,
     method: "POST",
     headers: {
+      "Content-Type": "multipart/form-data",
       Authorization: `Token ${sessionStorage.getItem("token")}`,
     },
-    // data: FormDatas,
+    data: FormDatas,
   };
   await axios(config)
     .then((res) => {
-      alert(res.data);
+      if(res.status===201){
+        toast.success('Updated sucessfully', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }
     })
     .catch((err) => {
-      alert(err);
+      toast.error('someting went wrong', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     });
 
 }
@@ -90,12 +122,12 @@ const postAPI = async() => {
       <br />
       <br />
      
-        {costofData.map((ele,idx)=>(
-           <div id={idx}>
-           <label style={{ margin: "0px", padding: "0px" }} htmlFor="">
+        {costofData.map((ele,id)=>(
+           <div id={id}>
+           <label name="coec_label" style={{ margin: "0px", padding: "0px", fontSize:"small" }} htmlFor="">
            {ele.name}
          </label>
-         <input style={{ margin: "0px", padding: "0px",border:"1px solid gray" }} defaultValue={ele.cost} onChange={updateFieldChanged} type="text" /> 
+         <input style={{ margin: "0px", padding: "0px",border:"1px solid gray", padding:"8px 0px", borderRadius:"5px", width:"90%",outline:"none" }} name="coecinput" defaultValue={ele.cost} onChange={updateFieldChanged(id)} type="text" /> 
          <br />
         
          <br />
@@ -114,9 +146,11 @@ const postAPI = async() => {
           left: "35%",
         }}
         variant="contained"
+        onClick={postAPI}
       >
         Edit Prices
       </Button>
+      <ToastContainer/>
     </div>
   );
 }

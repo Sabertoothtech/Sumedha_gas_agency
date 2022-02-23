@@ -4,6 +4,9 @@ import axios from "axios";
 import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
 import {postAPIFilleDCylinder} from '../../../Utils/utils'
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
   const [increDecre, setincreDecre] = useState(1)
@@ -30,8 +33,24 @@ function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
         Authorization: `Token ${sessionStorage.getItem("token")}`,
       },
     }).then(res=>{
-      alert(res.data)
-    }).catch(err=> alert(err))
+      toast.success(res.data, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }).catch(err=> toast.error('Something went wrong', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      }))
 
   }
 
@@ -84,7 +103,7 @@ function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
            
           </select>
           
-          <button onClick={()=> setincreDecre(increDecre-1)} style={{borderRadius:"5px",width:"27px",background:"#fff",border:"0.5px solid gray",cursor:"pointer", height:"30px", marginLeft:"3px"}}>-</button>
+          <button onClick={()=> setincreDecre(increDecre<=1?increDecre:increDecre-1)} style={{borderRadius:"5px",width:"27px",background:"#fff",border:"0.5px solid gray",cursor:"pointer", height:"30px", marginLeft:"3px"}}>-</button>
           <span style={{color:"black"}}>{increDecre}</span>
           <button onClick={()=> setincreDecre(increDecre+1)} style={{borderRadius:"5px",width:"27px",background:"#fff",border:"0.5px solid gray",cursor:"pointer", height:"30px", marginLeft:"3px"}}>+</button>
       
@@ -112,6 +131,7 @@ function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 }

@@ -1,0 +1,59 @@
+ .r-d__components{
+     min-height: 100%;
+     width: 100%;
+     border: 1px solid gray;
+     border-radius: 8px;
+     padding-left: 10px;
+     padding-right: 10px;
+    
+ }
+
+ .r_d_header{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .r_d_amount1_date{
+     display: flex;
+     width: 95%;
+     justify-content: space-between;
+     align-items: center;
+ }
+ .r_d_amount2_date{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.strong_r_D{
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.9;
+    display: block;
+}
+.table_r_d{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.input_R_D_update{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.input_R_D{
+    width: 29%;
+    margin:0px;
+    padding:0px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid gray;
+}

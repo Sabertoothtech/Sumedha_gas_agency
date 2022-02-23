@@ -1,8 +1,7 @@
 
 import './App.css';
 import Login from './Components/LoginMain/Login';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "@fontsource/montserrat";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Protected from './Protected';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Setting from './Components/Setting/SettingJsx/Setting';
@@ -11,6 +10,7 @@ import FilledCylinder from './Components/FilledCylinder/FilledCylinder';
 import Profile from './Components/Sidebar/SidebarProfile/Profile/Profile';
 import EmptyCylinder from './Components/EmptyCylinder/EmptyCylinder';
 import Finance from './Components/Finance/Finance';
+import MyOrder from './Components/MyOrder/MyOrder';
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
         <Protected path="/profile" component={Profile} Auth={sessionStorage.getItem('token')}/>
         <Protected path="/emptycylinder" component={EmptyCylinder} Auth={sessionStorage.getItem('token')}/>
         <Protected path="/finance" component={Finance} Auth={sessionStorage.getItem('token')}/>
+        <Protected path="/myorder" component={MyOrder} Auth={sessionStorage.getItem('token')}/>
         </Switch>
       </Router>
 

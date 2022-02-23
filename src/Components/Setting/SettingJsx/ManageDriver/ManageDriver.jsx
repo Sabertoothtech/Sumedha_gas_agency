@@ -87,7 +87,7 @@ function ManageDriver(props) {
         <div key={id} className="manage_driver_name_icon">
           <small>{name.drivername}</small>
           <div className="manage_icon">
-            <EditIcon   onClick={() =>{ props.setupdatePopUp(true); props.setUpDriverId(name.driverid) }} />
+            <EditIcon style={{marginRight:"10px"}}  onClick={() =>{ props.setupdatePopUp(true); props.setUpDriverId(name.driverid) }} />
             <DeleteIcon onClick={()=> deleteAPI(name.driverid)} />
           </div>
         </div>

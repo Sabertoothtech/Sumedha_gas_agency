@@ -19,7 +19,7 @@ function Accessories() {
   const accessories_4_small__main = {
     boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
     width: "400px",
-    height: "100px",
+    height: "115px",
     marginTop: "20px",
     borderRadius: "10px",
     padding: "10px"

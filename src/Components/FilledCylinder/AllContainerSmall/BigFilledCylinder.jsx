@@ -80,9 +80,9 @@ function Big4Container(props) {
             key={index}
             style={{
               width: "95%",
-              height: "100px",
+              height: "110px",
               boxShadow: " rgba(0, 0, 0, 0.16) 0px 1px 4px",
-              borderRadius: "8px",
+              borderRadius: "15px",
               transition: "backgroundColor 0.1s ease-in-out",
               display: "flex",
               justifyContent: "center",

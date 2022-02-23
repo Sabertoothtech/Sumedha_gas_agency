@@ -5,7 +5,7 @@ import SettingTopHeader from "../../../Setting/SettingJsx/SettingTopHeader";
 import Fab from '@mui/material/Fab';
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import { border } from "@mui/system";
+
 
 function Profile() {
   return (
@@ -43,7 +43,7 @@ function Profile() {
               <br />
               <br />
               <label htmlFor="">Contact: </label>
-              <input value="+919191777" type="number" />
+              <input value="+919191777" type="phone" />
               <br />
               <br />
               <label htmlFor="">Address: </label>

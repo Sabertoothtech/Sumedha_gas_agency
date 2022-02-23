@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getdiscounrSetGasPriceAPI } from "../../../../Utils/utils";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import axios from "axios";
 import Button from "@mui/material/Button";
@@ -48,13 +51,7 @@ function DiscountPrice() {
 
   const postDataDiscountFunction = async () => {
     var FormDatas = new FormData();
-    // setopeneDdit(updateddasprice.map((ele)=>({
-    //   "cylinder_type_id":ele.id,
-    //     "amount":ele.amount,
-    //     "cgst":ele.cgst,
-    //     "sgst":ele.sgst,
-    // })))
-    // FormDatas.append("cylinder_gas_price_id", JSON.stringify([{"cylinder_type_id": 2, "amount": 202,"cgst":"cgst1","sgst":"sgst1"}, {"cylinder_type_id": 2, "amount": 20,"cgst":"64559sffds","sgst":"ffsdf856"}]));
+   
     FormDatas.append(
       "cylinder_discount_gas_price_id",
       JSON.stringify(
@@ -65,9 +62,6 @@ function DiscountPrice() {
           sgst: ele.sgst,
         }))
       )
-      // JSON.stringify([{"cylinder_type_id": 1, "amount": 20,"cgst":"64559sffds","sgst":"ffsdf856"}, {"cylinder_type_id": 2, "amount": 20,"cgst":"64559sffds","sgst":"ffsdf856"},
-      // {"cylinder_type_id": 3, "amount": 200,"cgst":"64559sffds","sgst":"ffsdf856"},
-      // {"cylinder_type_id": 4, "amount": 200,"cgst":"64559sffds","sgst":"ffsdf856"}])
     );
     const config = {
       url: getdiscounrSetGasPriceAPI,
@@ -79,10 +73,26 @@ function DiscountPrice() {
     };
     await axios(config)
       .then((res) => {
-        alert(res.data);
+        toast.success(res.data, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
       })
       .catch((err) => {
-        alert(err);
+        toast.error('Something went wrong', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
       });
   };
 
@@ -107,6 +117,7 @@ function DiscountPrice() {
                   </small>
                   <br />
                   <input
+                  style={{outline:"none"}}
                     name="name"
                     defaultValue={ele.amount}
                     onChange={updateFieldChanged(id)}
@@ -115,6 +126,7 @@ function DiscountPrice() {
                 </td>
                 <td>
                   <input
+                  style={{outline:"none"}}
                     defaultValue={ele.cgst}
                     name="name1"
                     onChange={updateFieldChanged(id)}
@@ -124,6 +136,7 @@ function DiscountPrice() {
                 </td>
                 <td>
                   <input
+                  style={{outline:"none"}}
                     defaultValue={ele.sgst}
                     name="name2"
                     onChange={updateFieldChanged(id)}
@@ -155,6 +168,7 @@ function DiscountPrice() {
           Edit Price
         </Button>
       </div>
+      <ToastContainer/>
     </div>
   );
 }
