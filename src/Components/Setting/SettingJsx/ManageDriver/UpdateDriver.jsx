@@ -166,7 +166,7 @@ function UpdateDriver({ setShowCon, setShowupdateCon, udDriverId }) {
 
             <Button
               onClick={addDriverClick}
-              className="updatedriverbtn"
+              style={{marginTop:"40px", width:"90%"}}
               variant="contained"
               color="success"
             >

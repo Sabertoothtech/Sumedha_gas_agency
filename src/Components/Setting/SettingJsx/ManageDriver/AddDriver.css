@@ -19,7 +19,6 @@
     width: 100%;
     display: flex;
     justify-content: end;
-    color: red;
 
 }
 .add_driver_clearbtn{
@@ -36,13 +35,23 @@
 .add_driver_driverData{
     margin-top: 30px;
     display: flex;
-    justify-content: space-around;
+    
+}
+
+.add_driver_left_data{
+    /* border:2px solid red; */
+    flex: 4;
+}
+.add_driver_right_data{
+    /* border:2px solid red; */
+    flex: 4;
 }
 
 .add_driver_driverData input{
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
+    margin:0px;
+    padding: 8px;
+    border-radius: 5px;
+    width: 90%;
 
 }
 
@@ -54,3 +63,35 @@
 }
 .add_driver_button >.adddriverbtn{
     padding: 15px 50px}
+
+
+
+
+    @media screen and (max-width:600px) {
+        .add_driver_driverData{
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+       
+        .add_driver_driverData input{
+            margin:0px;
+            margin-top: 0px !important;
+            padding: 8px;
+            border-radius: 5px;
+            width: 90%;
+         
+        
+        }
+
+        .add_driver_left_data{
+            margin: auto;
+            width: 90%;
+        }
+        .add_driver_right_data{
+            margin: auto;
+            width: 90%;
+        }
+        
+      }

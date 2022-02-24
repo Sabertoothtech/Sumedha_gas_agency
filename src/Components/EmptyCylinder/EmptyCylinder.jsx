@@ -8,8 +8,8 @@ import { empty_instock,empty_incollect } from "./../../Utils/utils";
 import Stock from './AllContainer/Stock'
 import Collect from './AllContainer/Collect'
 import Transit from './AllContainer/Transit'
-
 import axios from "axios";
+
 function EmptyCylinder() {
 const [showFilledcontainer, setShowFilledcontainer] = useState(0);
 const [gasName, setgasName] = useState("")
@@ -45,6 +45,7 @@ const [emptySelectAPIChange, setemptySelectAPIChange] = useState(
       })
       .catch((err) => console.log(err));
   };
+  
 
   const collect = async() => {
     const config = {
@@ -59,16 +60,13 @@ const [emptySelectAPIChange, setemptySelectAPIChange] = useState(
         if ((res.status === 200)) {
           setincollectdata(
             res.data.map((data) => ({
-             
-              // id:data.data.empty_cylinder_to_collect_quantity.cylinder_type_id.id,
-              // name: data.data.empty_cylinder_to_collect_quantity.cylinder_type_id.name,
               agency_name:
               data.data.empty_cylinder_to_collect.agency_id.agency_name,
               date: data.data.empty_cylinder_to_collect_quantity.empty_cylinder_tocollect_id.date,
               quantity: data.data.empty_cylinder_to_collect_quantity.quantity,
             }))
           );
-          console.log("resdata",res.data)
+          console.log("resdata2",incollectdata)
         }
       })
       .catch((err) => console.log(err));

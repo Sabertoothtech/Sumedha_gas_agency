@@ -47,3 +47,16 @@
     margin-right: 8px;
 }
 
+
+
+
+@media screen and (max-width: 600px) {
+    .setting_container_main{
+        background-color: white;
+        width: 80%;
+        margin: auto;
+        
+    }
+
+   
+  }

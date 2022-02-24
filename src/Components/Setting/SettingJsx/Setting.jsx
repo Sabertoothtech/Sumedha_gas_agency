@@ -17,8 +17,10 @@ import Update from './ManageVender/Update'
 import AddVendor from './ManageVender/AddVendor'
 import ChangePassword from './ChangePassword/ChangePassword'
 import UpdateAgency from './ManageAgency/UpdateAgency'
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Setting() {
+    const matches = useMediaQuery('(max-width:1100px)');
     const [showContainer, setShowContainer] = useState(0)
     const [showAddDriver, setshowAddDriver] = useState(false)
     const [showAddAgency, setshowAddAgency] = useState(false)
@@ -33,7 +35,7 @@ function Setting() {
     const [vendorupdateID, setvendorupdateID] = useState(null)
     return (
         <div className="setting__main">
-            <LeftSidebar />
+            {matches?"j":<LeftSidebar />}
             <div className="setting__container">
                 
                 
