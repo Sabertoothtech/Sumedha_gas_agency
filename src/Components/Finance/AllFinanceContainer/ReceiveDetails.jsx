@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ReceiveDetails.css";
 import Button from "@mui/material/Button";
-import { financeDateupdateAPI } from "../../../Utils/utils";
+import { financeDateupdateAPI,financeTraUpdateAPI } from "../../../Utils/utils";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -19,8 +19,8 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
 
   const updateDate = async() => {
     var FormDatas = new FormData();
-    FormDatas.append("agency_id",5)
-    FormDatas.append("due_date",2021-12-25)
+    FormDatas.append("agency_id",receiveDetailsData.id)
+    FormDatas.append("due_date",updatedateData)
     await axios({
       method: "post",
       url: financeDateupdateAPI,
@@ -50,6 +50,42 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
       }))
   };
 
+  const updateTranData = async() => {
+    var FormDatas = new FormData();
+    FormDatas.append("agency_id","5")
+    FormDatas.append("date","12/02/30")
+    FormDatas.append("amount","675")
+    FormDatas.append("mode","check")
+    await axios({
+      method: "post",
+      url: financeTraUpdateAPI,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Token ${sessionStorage.getItem("token")}`,
+      },
+      data: FormDatas,
+    }).then(res=>{
+      toast.success(res.data, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }).catch(err=> toast.error('Something went wrong', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      }))
+  };
+
+
   return (
     <div className="r-d__components">
       <div className="r_d_header">
@@ -61,7 +97,7 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
             textTransform: "capitalize",
           }}
           onClick={() => setshowRdetail(false)}
-          c
+          
         >
           &#60; Back
         </Button>
@@ -121,13 +157,14 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
           display: "block",
           marginBottom: "10px",
         }}
+        onClick={()=>updateTranData()}
         variant="contained"
         
       >
         Update
       </Button>
       <strong className="strong_r_D">Set Due Date</strong>
-      <input className="input_R_D" type="date" placeholder="date" />
+      <input onChange={(e)=>setdateTraData(e.target.value)} className="input_R_D" type="date" placeholder="date" />
       <Button
         style={{
           backgroundColor: "rgb(34, 9, 146)",

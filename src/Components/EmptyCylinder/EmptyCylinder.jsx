@@ -62,7 +62,7 @@ const [emptySelectAPIChange, setemptySelectAPIChange] = useState(
             res.data.map((data) => ({
               agency_name:
               data.data.empty_cylinder_to_collect.agency_id.agency_name,
-              date: data.data.empty_cylinder_to_collect_quantity.empty_cylinder_tocollect_id.date,
+              date: data.data.empty_cylinder_to_collect.date,
               quantity: data.data.empty_cylinder_to_collect_quantity.quantity,
             }))
           );

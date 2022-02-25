@@ -4,6 +4,8 @@ import "./UpdateDriver.css";
 import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import { addUpdateDriverAPI } from "../../../../Utils/utils";
 import { getdriverIDAPI } from "../../../../Utils/utils";
 
@@ -66,9 +68,25 @@ function UpdateDriver({ setShowCon, setShowupdateCon, udDriverId }) {
       },
     };
     await axios(config)
-      .then((res) => {
-        alert(res.data);
-      })
+    .then(res=>{
+      toast.success(res.data, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }).catch(err=> toast.error('Something went wrong', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      }))
       // .catch((err) => alert(err));
   };
   return (
@@ -175,6 +193,7 @@ function UpdateDriver({ setShowCon, setShowupdateCon, udDriverId }) {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 }

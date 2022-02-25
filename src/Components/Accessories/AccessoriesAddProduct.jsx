@@ -2,7 +2,8 @@ import ClearIcon from "@mui/icons-material/Clear";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "@mui/material/Button";
-import { width } from "@mui/system";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function AccessoriesAddProduct({ setAddProduct }) {
   const [proName, setProName] = useState("");
@@ -60,11 +61,24 @@ function AccessoriesAddProduct({ setAddProduct }) {
       },
     })
       .then(function (response) {
-        alert(response.data);
-      })
-      .catch(function (error) {
-        // alert(error.response.data[0].Message + " All field Are Required");
-      });
+        toast.success(response.data, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }).catch(err=> toast.error('Something went wrong', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        }))
   };
   return (
     <div style={accessories__main}>
@@ -121,6 +135,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
           Save
         </Button>
       </div>
+      <ToastContainer/>
     </div>
   );
 }

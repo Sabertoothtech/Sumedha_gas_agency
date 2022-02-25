@@ -25,4 +25,5 @@ export const changepass = "http://45.79.121.178:8000/admin_update_password/"
 
 export const financeReceiveCompanyAPI = "http://45.79.121.178:8000/agency_amount_receivable/"
 export const financeDateupdateAPI = "http://45.79.121.178:8000/agency_set_due_date/"
+export const financeTraUpdateAPI = "http://45.79.121.178:8000/agency_amount_receivable/"
 
