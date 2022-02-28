@@ -1,12 +1,13 @@
 .filled_cylinder__main {
   display: flex;
-  max-height: 100vh;
-  overflow: hidden;
+ height: 100vh;
+  overflow-y: scroll;
 }
 
 .filled_cylinder__container {
   width: 100%;
   background-color: #f5f5f5;
+  height: 100%;
 }
 .filled_cylinder__main_container {
   background-color: white;
@@ -62,4 +63,42 @@ td{
 }
 th{
   border:none;
+}
+
+
+@media screen and (max-width: 1100px) {
+  .filled_cylinder__main_container {
+    width: 100%;
+    margin: 50px 0px;
+  }
+}
+
+@media screen and (max-width:700px){
+  /* .filled_cylinder__main {
+    display: flex;
+    height: auto;
+    overflow-y: scroll;
+  } */
+  .filled_cylinder_both_container {
+   flex-direction: column;
+    display: flex;
+
+    justify-content: space-between;
+  }
+  .filled_cylinder_4big {
+    min-height: 400px;
+  }
+  .filled_cylinder_changeable_box {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    
+   min-height: 430px;
+    flex: 0.3;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    overflow-y: scroll;
+    /* background-color: blue; */
+  }
 }

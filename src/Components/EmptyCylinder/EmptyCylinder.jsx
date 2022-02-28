@@ -9,8 +9,11 @@ import Stock from './AllContainer/Stock'
 import Collect from './AllContainer/Collect'
 import Transit from './AllContainer/Transit'
 import axios from "axios";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MobNavbar from "../../CommonComponents/MobNavbar";
 
 function EmptyCylinder() {
+  const matches = useMediaQuery('(max-width:1100px)');
 const [showFilledcontainer, setShowFilledcontainer] = useState(0);
 const [gasName, setgasName] = useState("")
 
@@ -75,8 +78,9 @@ const [emptySelectAPIChange, setemptySelectAPIChange] = useState(
 
   return (
     <div className="empty_cylinder__main">
-      <LeftSidebar />
+      {matches?null:<LeftSidebar />}
       <div className="empty_cylinder__container">
+      {matches?<MobNavbar/>:null}
         <div className="empty_cylinder_main_container">
           <HeaderEmpty
             setemptySelectAPIChange={setemptySelectAPIChange}

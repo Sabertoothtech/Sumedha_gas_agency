@@ -2,12 +2,16 @@ import React from 'react'
 import LeftSidebar from '../Sidebar/LeftSidebar'
 import './MyOrder.css'
 import Header from '../MyOrder/container/Header'
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MobNavbar from '../../CommonComponents/MobNavbar';
 
 function MyOrder() {
+    const matches = useMediaQuery('(max-width:1100px)');
   return (
     <div className='myorder__container'>
-        <LeftSidebar/>
+        {matches?null:<LeftSidebar />}
         <div className="myorder_item">
+        {matches?<MobNavbar/>:null}
             <div className="myorder_container_main">
                 <div className="header_myoredr_con">
                     <Header/>

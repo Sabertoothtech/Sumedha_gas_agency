@@ -6,7 +6,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { getvendorAPI } from "../../../../Utils/utils";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ManageVender({
   setshowAddVendor,
@@ -14,6 +14,7 @@ function ManageVender({
   setshowUpdateVendor,
 }) {
   const [getvendordata, setgetvendordata] = useState([]);
+  const [refresh, setrefresh] = useState(true)
   // const notify = () => toast("Wow so easy!");
   const deleteAPI = async(id) => {
     var FormDatas = new FormData();
@@ -78,7 +79,7 @@ function ManageVender({
 
   useEffect(() => {
     getAPI();
-  }, []);
+  }, [refresh]);
   return (
     <div className="manage_vandor_container">
       <small style={{ color: "gray", fontSize: "small" }}>Manage Vendor</small>
@@ -86,6 +87,7 @@ function ManageVender({
         {getvendordata.map((ele, key) => (
           <div key={key} className="vendor_name_data">
             <small>{ele.name}</small>
+            {refresh}
             <div className="manage_vendor_icon">
               <EditIcon
                 onClick={() => {
@@ -94,7 +96,8 @@ function ManageVender({
                 }}
                 className="icon-vendor"
               />
-              <DeleteIcon onClick={()=>deleteAPI(ele.id)} />
+              <DeleteIcon onClick={()=>{deleteAPI(ele.id);setrefresh(refresh?false:true)}} />
+              
             </div>
           </div>
         ))}

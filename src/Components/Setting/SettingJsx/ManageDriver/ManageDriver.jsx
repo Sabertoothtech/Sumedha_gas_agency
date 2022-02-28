@@ -10,12 +10,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function ManageDriver(props) {
   const [showDriverName, setShowDriverName] = useState([]);
+  const [refresh, setrefresh] = useState(true)
 
   const addDriverClick = () => {
     props.setdriverPopUp(true);
   };
 
-  const deleteAPI = async(id) => {
+  const deleteAPI =async(id) => {
     var FormDatas = new FormData();
     FormDatas.append("driver_id", id);
     const config = {
@@ -71,7 +72,7 @@ function ManageDriver(props) {
         setShowDriverName(ddname);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [refresh]);
   return (
     <div className="manage_driver__main">
       <small
@@ -88,7 +89,7 @@ function ManageDriver(props) {
           <small>{name.drivername}</small>
           <div className="manage_icon">
             <EditIcon style={{marginRight:"10px"}}  onClick={() =>{ props.setupdatePopUp(true); props.setUpDriverId(name.driverid) }} />
-            <DeleteIcon onClick={()=> deleteAPI(name.driverid)} />
+            <DeleteIcon onClick={()=> {deleteAPI(name.driverid);refresh? setrefresh(false):setrefresh(true)}} />
           </div>
         </div>
       ))}

@@ -18,6 +18,7 @@ import AddVendor from './ManageVender/AddVendor'
 import ChangePassword from './ChangePassword/ChangePassword'
 import UpdateAgency from './ManageAgency/UpdateAgency'
 import useMediaQuery from '@mui/material/useMediaQuery';
+import MobNavbar from '../../../CommonComponents/MobNavbar'
 
 function Setting() {
     const matches = useMediaQuery('(max-width:1100px)');
@@ -35,10 +36,10 @@ function Setting() {
     const [vendorupdateID, setvendorupdateID] = useState(null)
     return (
         <div className="setting__main">
-            {matches?"j":<LeftSidebar />}
+            {matches?null:<LeftSidebar />}
             <div className="setting__container">
                 
-                
+            {matches?<MobNavbar/>:null}
                 <div className="setting_container_main">
                     <SettingTopHeader pageName="Setting" />
                     <hr style={{ color: "#f5f5f5" }} />
@@ -50,7 +51,7 @@ function Setting() {
                     {showAddeVendor ? <AddVendor setshowAddVendor={setshowAddVendor} /> : ""}
                     {showUpdateAgency? <UpdateAgency uagencyId={uagencyId} setshowupdateAgency={setshowupdateAgency}/>:""}
 
-                    <div className="setting_container__both_container">
+                   {!showAddAgency?!showAddDriver? !showAddeVendor? !showUpdateAgency? !showUpdateDriver?!showUpdateVendor? <div className="setting_container__both_container">
                     
                         <div className="setting_4big_container"><Big4Container setshowcontainer={setShowContainer} />
                         </div>
@@ -66,7 +67,7 @@ function Setting() {
                             
 
                         </div>
-                    </div>
+                    </div>:"":"":"":"":"":""}
                 </div>
             </div>
         </div>

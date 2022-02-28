@@ -4,14 +4,18 @@ import LeftSidebar from "../../LeftSidebar";
 import SettingTopHeader from "../../../Setting/SettingJsx/SettingTopHeader";
 import Fab from '@mui/material/Fab';
 import Avatar from "@mui/material/Avatar";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Button from "@mui/material/Button";
+import MobNavbar from "../../../../CommonComponents/MobNavbar";
 
 
 function Profile() {
+  const matches = useMediaQuery('(max-width:1100px)');
   return (
     <div className="prfile__main">
-      <LeftSidebar />
+      {matches?null:<LeftSidebar />}
       <div className="profile__container">
+      {matches?<MobNavbar/>:null}
         <div className="profile_main_container">
           <SettingTopHeader pageName="Profile" />
           <hr style={{ color: "#f5f5f5" }} />

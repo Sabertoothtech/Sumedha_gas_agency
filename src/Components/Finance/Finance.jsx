@@ -12,8 +12,11 @@ import ReceiveDetails from "./AllFinanceContainer/ReceiveDetails";
 import PayDetails from "./AllFinanceContainer/PayDetails";
 import { financeReceiveCompanyAPI } from "../../Utils/utils";
 import axios from "axios";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MobNavbar from "../../CommonComponents/MobNavbar";
 
 function Finance() {
+  const matches = useMediaQuery('(max-width:1100px)');
   const [showRdetail, setshowRdetail] = useState(false);
   const [showPdetail, setshowPdetail] = useState(false);
 
@@ -53,8 +56,9 @@ function Finance() {
 
   return (
     <div className="finance__main">
-      <LeftSidebar />
+      {matches?null:<LeftSidebar />}
       <div className="finance__container">
+      {matches?<MobNavbar/>:null}
         <div className="finance_main_container">
           <FinanceHeader />
           <hr style={{ color: "#f5f5f5" }} />

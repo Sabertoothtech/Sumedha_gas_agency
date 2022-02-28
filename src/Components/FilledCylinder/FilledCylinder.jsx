@@ -7,8 +7,11 @@ import Small4FilledCylinder from "./AllContainerSmall/Small4FilledCylinder";
 import BigFilledCylinder from "./AllContainerSmall/BigFilledCylinder";
 import AddEntryFilledCylinder from "./AllContainerSmall/AddEntryFilledCylinder";
 import { filledCylinderGetAPI } from ".././../Utils/utils";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MobNavbar from "../../CommonComponents/MobNavbar";
 
 function FilledCylinder() {
+  const matches = useMediaQuery('(max-width:1100px)');
   const [showAddEntryFilledCylinder, setShowAddEntryFilledCylinder] =
     useState(false);
   const [showFilledcontainer, setShowFilledcontainer] = useState(0);
@@ -57,8 +60,9 @@ function FilledCylinder() {
 
   return (
     <div className="filled_cylinder__main">
-      <LeftSidebar />
+      {matches?null:<LeftSidebar />}
       <div className="filled_cylinder__container">
+      {matches?<MobNavbar/>:null}
         <div className="filled_cylinder__main_container">
           <HeaderFilledCylinder
             setShowAddEntryFilledCylinder={setShowAddEntryFilledCylinder}
@@ -129,82 +133,6 @@ function FilledCylinder() {
                     ))}
                   </tbody>
 
-                  {/* <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr>
-                  <tr>
-                    <td>12/10/20</td>
-                    <td>20</td>
-                  </tr> */}
                 </table>
               </div>
             </div>

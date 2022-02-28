@@ -12,16 +12,21 @@ import MovingIcon from '@mui/icons-material/Moving';
 import LineChartDashboard from './DashboardSmallContainer/LineChartDashboard';
 import TableDashboard from './DashboardSmallContainer/TableDashboard';
 import AllAgency from './DashboardSmallContainer/AllAgency/AllAgency';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MobNavbar from '../../CommonComponents/MobNavbar';
 
 function Dashboard() {
+    const matches = useMediaQuery('(max-width:1100px)');
     const [allCountryData, setAllCountryData] = useState(false)
     return (
         <>
         
             <div className="dashboard__main">
-                <LeftSidebar />
+            {matches?null:<LeftSidebar />}
                 <div className="dashboard__container">
+                {matches?<MobNavbar/>:null}
                     <div className="dashboard_main_container">
+                        
                         <DashboardHeader allCountryData={allCountryData} setAllCountryData={setAllCountryData} />
                         <hr style={{ color: "#f5f5f5" }} />
                        

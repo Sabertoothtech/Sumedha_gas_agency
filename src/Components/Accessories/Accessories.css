@@ -6,13 +6,20 @@
 .accessories__container{
     /* border: 2px solid green; */
     max-height: 100vh;
-    overflow: hidden;
+    overflow-y: scroll;
     width: 100%;
     background-color: #F5F5F5;
     overflow-y: scroll;
    
     
 }
+img {
+    width: 300px;
+    height: 100px;
+    border: 1px solid green;
+    display: inline-block;
+    overflow: auto;
+  }
 
 .accessories_main_container{
     background-color: white;
@@ -33,3 +40,15 @@
     flex-wrap: wrap;
 
 }
+
+
+
+
+
+
+@media screen and (max-width: 1100px) {
+    .accessories_main_container {
+      width: 100%;
+      margin: 50px 0px;
+    }
+  }

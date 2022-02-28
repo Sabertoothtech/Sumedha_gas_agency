@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function ManageAgency(props) {
   const [nameagencyArray, setnameagencyArray] = useState([]);
+  const [refresh, setrefresh] = useState("")
 
   const agencyDelete = async (id) => {
     var FormDatas = new FormData();
@@ -67,7 +68,7 @@ function ManageAgency(props) {
         );
       })
       .catch((err) => console.log("error"));
-  }, []);
+  }, [refresh]);
 
   return (
     <div className="manage_driver__main">
@@ -90,7 +91,7 @@ function ManageAgency(props) {
               }}
               onClick={()=> {props.setshowupdateAgency(true);props.setuagencyId(name.agency_id)}}
             />
-            <DeleteIcon onClick={() => agencyDelete(name.agency_id)} />
+            <DeleteIcon onClick={() => {agencyDelete(name.agency_id);setrefresh("agencyrefresh")}} />
           </div>
         </div>
       ))}

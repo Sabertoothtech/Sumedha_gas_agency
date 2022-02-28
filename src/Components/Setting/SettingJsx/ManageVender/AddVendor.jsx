@@ -7,7 +7,7 @@ import { getvendorAPI } from "../../../../Utils/utils";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
-function AddVendor() {
+function AddVendor({setshowAddVendor}) {
   const [postdatavendor, setpostdatavendor] = useState({
     vendor_name: "",
     vendor_id: "",
@@ -61,17 +61,34 @@ function AddVendor() {
       data:FormDatas
     };
     await axios(config)
-      .then((res) => {
-       alert(res.data)
-      })
-      .catch((err) => {
-        // alert("err");
-      });
+    .then((res) => {
+      
+      toast.success(res.data, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    })
+    .catch((err) => {
+      toast.error('Something went wrong', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    });
   }}
 
   return <div className='post_vendor_container'>
       <div className="post_vendor_main">
-        <div style={{display:"flex", justifyContent:"end", padding:"10px"}}><ClearIcon/></div>
+        <div onClick={()=>setshowAddVendor(false)} style={{display:"flex", justifyContent:"end", padding:"10px"}}><ClearIcon/></div>
         <div style={{ display: "flex", justifyContent: "center" }}><strong>Add Vendor</strong></div>
         <div className="container_post_all_item">
         <div className="left_container">
