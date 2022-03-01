@@ -17,6 +17,7 @@ import MobNavbar from '../../CommonComponents/MobNavbar';
 
 function Dashboard() {
     const matches = useMediaQuery('(max-width:1100px)');
+    const staticbuttonres = useMediaQuery('(max-width:500px)');
     const [allCountryData, setAllCountryData] = useState(false)
     return (
         <>
@@ -65,7 +66,7 @@ function Dashboard() {
                                 </div>
                             </div>
                             <div className="view_statistics_button">
-                                <Button variant="outlined">View Statistics</Button>
+                                <Button style={{fontSize:"small",transform:staticbuttonres?"rotate(-90deg)":null,marginLeft:staticbuttonres?"-100px":0}} variant="outlined">{staticbuttonres?"statistics":"View Statistics"}</Button>
                             </div>
                         </div>
                         <hr style={{ color: "#f5f5f5", width: "90%", margin: "auto" }} />

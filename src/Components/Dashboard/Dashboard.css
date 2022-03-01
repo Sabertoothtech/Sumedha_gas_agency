@@ -29,6 +29,9 @@
     justify-content: space-between;
     margin-top: 15px;
     margin-bottom: 15px;
+    overflow: auto;
+    /* border: 2px solid red; */
+    /* padding: 3px; */
 }
 .dashboard_statistics{
     width: 90%;
@@ -160,5 +163,71 @@
       width: 100%;
    margin: 50px 0px;
     }
+    ::-webkit-scrollbar {display:none;}
+    .dashboard_instock_2small_container{
+        margin-left: 8px;
+    } 
+  }
+
+  @media screen and (max-width: 700px) {
+    .dashboard_circlechart{
+    
+        width: 90%;
+        margin: auto;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .dashboard_doughnut_text{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 100%;
+        height: 100%;
+       margin-bottom: 15px;
+        
+    
+    }
+
+    .dashboard_barchart_doughnut{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .dashboard__linechart_table{
+        width: 90%;
+        /* border: 2px solid hotpink; */
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    
+    }
+
+    .dashboard_linechart{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 100%;
+        margin-bottom: 15px;
+       
+    }
+    .dashboard_table{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 100%;
+        height: 100%;
+        
+    
+    }
+
+    .dashboard_2smallin1container{
+        display: flex;
+    flex-direction: column;
+    }
+
+   
+
    
   }

@@ -5,10 +5,10 @@ import Button from "@mui/material/Button";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import {updateEccessoriesAPI} from '../../Utils/utils'
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
-
+  const matches = useMediaQuery('(max-width:500px)');
   const [updateAccessData, setUpdateAccessData] = useState([])
   const [name, setname] =useState("")
   const [quantity, setquantity] =useState("")
@@ -19,7 +19,7 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
   const accessories__main = {
     boxShadow:
       "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
-    width: "400px",
+    width:matches?"90%":"400px",
     height: "450px",
     borderRadius: "10px",
     marginTop: "15px",
@@ -37,7 +37,7 @@ function UpdateAccessories({ setUpdateAProduct,idForUpdate }) {
     padding: "0px",
     border: "1px solid gray",
     display: "flex",
-   
+   width:"100%",
     padding:"8px 10px",
     borderRadius: "5px",
     outline:"none"

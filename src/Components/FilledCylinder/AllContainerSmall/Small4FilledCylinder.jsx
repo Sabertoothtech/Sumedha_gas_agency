@@ -1,11 +1,12 @@
 import { height } from '@mui/system'
 import React from 'react'
-import MovingIcon from '@mui/icons-material/Moving';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
 
 function ThreeSmallContainer({trandingicon,bgcolor,color,data,name,kg,kg1,data1}) {
+    const matches = useMediaQuery('(max-width:1200px)');
     const tscm = {
-        width: "230px",
+        minWidth:matches?"200px": "230px",
         height: "90px",
         borderRadius: "15px",
         display:"flex",
@@ -13,7 +14,7 @@ function ThreeSmallContainer({trandingicon,bgcolor,color,data,name,kg,kg1,data1}
         alignItems:"center",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         padding: "3px 15px ",
-        
+        margin:"5px"
 
     }
     const three_small_container_icon={

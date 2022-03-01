@@ -5,10 +5,12 @@ import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
 import {postAPIFilleDCylinder} from '../../../Utils/utils'
 import { ToastContainer, toast } from 'react-toastify';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
+  const matches = useMediaQuery('(max-width:400px)');
   const [increDecre, setincreDecre] = useState(1)
   const [postDataFilled, setpostDataFilled] = useState(1)
   const add_entry_filled_cylinder__main = {
@@ -62,17 +64,25 @@ function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
     marginTop: "100px",
     borderRadius: "10px",
     padding: "10px",
+    // display:matches?"flex":null,
+    // alignItems:matches?"center":null,
+    // justifyContent:matches?"center":null,
   };
 
   const input_lable_fc = {
     margin: "0px",
     padding: "0px",
+    marginBottom:"15px"
   };
 
   const div_input_button_fc = {
     margin: "auto",
     width: "80%",
     color:"gray",
+    display:matches?"flex":null,
+    alignItems:matches?"center":null,
+    // justifyContent:matches?"center":null,
+    flexDirection:matches?"column":null,
     
   };
 
@@ -102,11 +112,11 @@ function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
             <option value="4">Commercial/LOT 45kg</option>
            
           </select>
-          
+          <div style={{marginTop:"10px",display:"flex"}}>
           <button onClick={()=> setincreDecre(increDecre<=1?increDecre:increDecre-1)} style={{borderRadius:"5px",width:"27px",background:"#fff",border:"0.5px solid gray",cursor:"pointer", height:"30px", marginLeft:"3px"}}>-</button>
           <span style={{color:"black"}}>{increDecre}</span>
           <button onClick={()=> setincreDecre(increDecre+1)} style={{borderRadius:"5px",width:"27px",background:"#fff",border:"0.5px solid gray",cursor:"pointer", height:"30px", marginLeft:"3px"}}>+</button>
-      
+          </div>
           <br />
           {/* <label style={input_lable_fc} htmlFor="">
             Ouantity

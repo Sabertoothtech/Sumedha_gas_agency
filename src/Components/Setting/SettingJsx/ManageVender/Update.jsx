@@ -154,7 +154,7 @@ function Update({ vendorupdateID, setshowUpdateVendor }) {
             <input onChange={changeValue} name="id" value={updatedatavendor.id} type="text" />
             <Button
               onClick={updateAPI}
-              style={{ width: "350px", marginTop: "35px", display: "block" }}
+              style={{ width: "90%", marginTop: "35px", display: "block" }}
               variant="contained"
               color="success"
             >

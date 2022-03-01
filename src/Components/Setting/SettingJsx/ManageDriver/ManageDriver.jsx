@@ -30,7 +30,7 @@ function ManageDriver(props) {
     };
     await axios(config)
       .then((res) => {
-        console.log(res)
+       
         toast.success('Driver sucessfully deleted', {
           position: "top-center",
           autoClose: 5000,

@@ -4,6 +4,8 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import { addDriverAPI } from '../../../../Utils/utils'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -39,9 +41,28 @@ function AddDriver({ setShowCon }) {
             }
         }
         await axios(config)
-            .then((res) => {
-                alert(res.data)
-            }).catch((err) => alert("Something is wrong...Your Email should be unique"))
+        .then((res) => {
+            toast.success('Driver sucessfully deleted', {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              });
+          })
+          .catch((err) => {
+            toast.error('Something went wrong', {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              });
+          });
     }
     return (
         <div className=" add_driver__main">
@@ -92,7 +113,7 @@ function AddDriver({ setShowCon }) {
                 </Button></div>
 
             </div>
-
+<ToastContainer/>
         </div>
     )
 }

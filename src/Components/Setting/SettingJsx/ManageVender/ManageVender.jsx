@@ -96,7 +96,7 @@ function ManageVender({
                 }}
                 className="icon-vendor"
               />
-              <DeleteIcon onClick={()=>{deleteAPI(ele.id);setrefresh(refresh?false:true)}} />
+              <DeleteIcon onClick={()=>{deleteAPI(ele.id); refresh?setrefresh(false):setrefresh(true)}} />
               
             </div>
           </div>

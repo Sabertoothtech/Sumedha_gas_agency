@@ -2,10 +2,12 @@ import ClearIcon from "@mui/icons-material/Clear";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "@mui/material/Button";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
 function AccessoriesAddProduct({ setAddProduct }) {
+  const matches = useMediaQuery('(max-width:500px)');
   const [proName, setProName] = useState("");
   const [proOunatity, setProOunatity] = useState("");
   const [proPrice, setProPrice] = useState("");
@@ -13,7 +15,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
   const accessories__main = {
     boxShadow:
       "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
-    width: "400px",
+    width: matches?"90%":"400px",
     height: "450px",
     borderRadius: "10px",
     marginTop: "15px",
@@ -33,7 +35,8 @@ function AccessoriesAddProduct({ setAddProduct }) {
     display: "flex",
     padding: "8px 10px",
     borderRadius: "5px",
-    outline:"none"
+    outline:"none",
+    width:"100%"
   };
   const label_all = {
     fontSize:"small"

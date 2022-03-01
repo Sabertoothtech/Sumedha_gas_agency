@@ -4,7 +4,7 @@ import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 function DataCircleGraph(props) {
 
     const progressbar_container__main={
-        width:"21%",
+        minWidth:"180px",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         height:"80px",
         borderRadius:"8px",
@@ -12,6 +12,7 @@ function DataCircleGraph(props) {
         alignItems:"center",
         justifyContent:"space-between",
         padding: "8px",
+        margin:"5px"
     }
 
     const progressbar_container_data={

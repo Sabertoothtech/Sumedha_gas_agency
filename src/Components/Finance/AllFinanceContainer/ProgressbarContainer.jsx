@@ -5,7 +5,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 function ProgressbarContainer(props) {
 
     const progressbar_container__main={
-        width:"21%",
+        minWidth:"180px",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         height:"80px",
         borderRadius:"8px",
@@ -13,6 +13,7 @@ function ProgressbarContainer(props) {
         flexDirection:"column",
         justifyContent:"space-between",
         padding: "8px",
+        margin:"5px"
     }
 
     const progressbar_container_data={

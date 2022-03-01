@@ -56,3 +56,26 @@ flex: 4;
 .right_container{
     border: 2px solid hotpink;
 } */
+
+
+@media screen and (max-width:600px) {
+    .container_post_all_item{
+        flex-direction: column;
+    }
+    .left_container {
+        margin: auto;
+            width: 90%;
+    }
+    .right_container {
+        margin: auto;
+            width: 90%;
+    }
+    .container_post_all_item input{
+        margin:0px;
+        margin-top: 0px !important;
+        padding: 8px;
+        border-radius: 5px;
+        width: 90%;
+        margin-bottom: 15px;
+    }
+}

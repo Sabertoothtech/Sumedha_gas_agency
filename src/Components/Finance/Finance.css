@@ -22,7 +22,7 @@
     background-color: white;
     width: 80%;
     margin: 30px 50px;
-    
+    height: 100%;
    
     /* border: 2px solid red; */
 }
@@ -35,7 +35,7 @@
   align-items: center;
   margin-top: 15px;
   margin-bottom: 15px;
-
+  overflow: auto;
 }
 
 .finance_both_table{
@@ -45,9 +45,7 @@
       display: flex;
       justify-content: space-between;
       margin-top: 30px;
-      
-      min-height: 430px;
-      max-height: 430px;
+     
       
       
 }
@@ -59,6 +57,7 @@
     border-radius: 15px;
     overflow-y: scroll;
     padding-bottom: 30px;
+    max-height: 500px;
 }
 
 .finance_amount_payable_table{
@@ -68,6 +67,7 @@
     border-radius: 15px;
     overflow-y: scroll;
     padding-bottom: 30px;
+    max-height: 500px;
 }
 
 .finance_receivable_company{
@@ -91,5 +91,16 @@
     .finance_main_container {
       width: 100%;
       margin: 50px 0px;
+    }
+  }
+
+
+  
+@media screen and (max-width: 700px) {
+    .finance_both_table {
+     flex-direction: column;
+    }
+    .finance_amount_payable_table{
+        margin-top: 20px;
     }
   }

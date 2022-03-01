@@ -12,6 +12,7 @@
   background-color: white;
   width: 80%;
   margin: 30px 50px;
+  height: 100%;
 }
 
 .empty_cylinder_3container {
@@ -22,6 +23,7 @@
   justify-content: space-between;
   margin-top: 15px;
   margin-bottom: 15px;
+  overflow: auto;
 }
 .empty_cylinder_both_container {
   width: 90%;

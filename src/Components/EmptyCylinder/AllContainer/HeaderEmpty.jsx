@@ -3,10 +3,11 @@ import Button from "@mui/material/Button";
 // import APIdataSelectChange from '../EmptyCylinder'
 import axios from "axios";
 import { empty_instock } from "../../../Utils/utils";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 function DashboardHeader({emptySelectAPIChange,setemptySelectAPIChange}) {
-
+  const matches = useMediaQuery('(max-width:700px)');
   const dth = {
     width: "95%",
     margin: "auto",
@@ -14,7 +15,7 @@ function DashboardHeader({emptySelectAPIChange,setemptySelectAPIChange}) {
     display: "flex",
     alignItems: "center",
 
-    // justifyContent: "space-between",
+    justifyContent: matches?"space-between":null,
   };
   const dhBtn = {
     height: "50px",

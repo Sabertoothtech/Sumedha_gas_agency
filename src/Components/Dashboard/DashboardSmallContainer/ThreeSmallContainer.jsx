@@ -1,10 +1,12 @@
 import { height } from "@mui/system";
 import React from "react";
 import MovingIcon from "@mui/icons-material/Moving";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function ThreeSmallContainer({ trandingicon, bgcolor, color }) {
+  const matches = useMediaQuery('(max-width:1200px)');
   const tscm = {
-    width: "230px",
+    minWidth:matches?"200px": "230px",
     height: "90px",
     borderRadius: "15px",
     display: "flex",
@@ -12,6 +14,8 @@ function ThreeSmallContainer({ trandingicon, bgcolor, color }) {
     alignItems: "center",
     boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
     padding: "3px 15px ",
+    margin:"5px"
+   
   };
   const three_small_container_icon = {
     width: "50px",
