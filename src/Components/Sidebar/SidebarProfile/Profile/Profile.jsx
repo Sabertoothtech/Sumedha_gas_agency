@@ -1,5 +1,6 @@
 import React from "react";
 import "./Profile.css";
+import { useHistory } from "react-router-dom";
 import LeftSidebar from "../../LeftSidebar";
 import SettingTopHeader from "../../../Setting/SettingJsx/SettingTopHeader";
 import Fab from '@mui/material/Fab';
@@ -11,13 +12,17 @@ import MobNavbar from "../../../../CommonComponents/MobNavbar";
 
 function Profile() {
   const matches = useMediaQuery('(max-width:1100px)');
+  const history = useHistory();
   return (
     <div className="prfile__main">
       {matches?null:<LeftSidebar />}
       <div className="profile__container">
       {matches?<MobNavbar/>:null}
         <div className="profile_main_container">
-          <SettingTopHeader pageName="Profile" />
+          {matches?<div style={{display:"flex",alignItems:"center", margin:"0px 20px"}}><SettingTopHeader pageName="Profile" />
+          <Button onClick={()=> {sessionStorage.removeItem("token");history.push("/")}} style={{color:"red", border:"none"}} variant="outlined" color="success"> Logout
+            </Button></div>:
+            <SettingTopHeader pageName="Profile" /> }
           <hr style={{ color: "#f5f5f5" }} />
 
           <div className="profile_data_image_container">

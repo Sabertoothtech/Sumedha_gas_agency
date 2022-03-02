@@ -1,4 +1,3 @@
-import { borderRadius } from "@mui/system";
 import React,{useState} from "react";
 import axios from "axios";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -6,11 +5,10 @@ import Button from "@mui/material/Button";
 import {postAPIFilleDCylinder} from '../../../Utils/utils'
 import { ToastContainer, toast } from 'react-toastify';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
-  const matches = useMediaQuery('(max-width:400px)');
+  const matches = useMediaQuery('(max-width:500px)');
   const [increDecre, setincreDecre] = useState(1)
   const [postDataFilled, setpostDataFilled] = useState(1)
   const add_entry_filled_cylinder__main = {
@@ -59,7 +57,7 @@ function AddEntryFilledCylinder({ setShowAddEntryFilledCylinder }) {
   const add_entry_filled_cylinder__container = {
     boxShadow:
       "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
-    width: "450px",
+    width:matches?"90%": "450px",
     height: "350px",
     marginTop: "100px",
     borderRadius: "10px",

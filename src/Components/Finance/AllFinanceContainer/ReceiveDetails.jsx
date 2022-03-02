@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import "./ReceiveDetails.css";
 import Button from "@mui/material/Button";
-import { financeDateupdateAPI,financeTraUpdateAPI } from "../../../Utils/utils";
+import {
+  financeDateupdateAPI,
+  financeTraUpdateAPI,
+} from "../../../Utils/utils";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsData }) {
+function ReceiveDetails({
+  setshowRdetail,
+  receiveDetailsData,
+  setreceiveDetailsData,
+}) {
   const [updateTraData, setupdateTraData] = useState({
     id: null,
     date: null,
@@ -14,13 +21,12 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
     mode: null,
   });
 
-
   const [updatedateData, setdateTraData] = useState(null);
 
-  const updateDate = async() => {
+  const updateDate = async () => {
     var FormDatas = new FormData();
-    FormDatas.append("agency_id",receiveDetailsData.id)
-    FormDatas.append("due_date",updatedateData)
+    FormDatas.append("agency_id", receiveDetailsData.id);
+    FormDatas.append("due_date", updatedateData);
     await axios({
       method: "post",
       url: financeDateupdateAPI,
@@ -29,33 +35,37 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
         Authorization: `Token ${sessionStorage.getItem("token")}`,
       },
       data: FormDatas,
-    }).then(res=>{
-      toast.success(res.data, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+    })
+      .then((res) => {
+        toast.success(res.data, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
         });
-    }).catch(err=> toast.error('Something went wrong', {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      }))
+      })
+      .catch((err) =>
+        toast.error("Something went wrong", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+      );
   };
 
-  const updateTranData = async() => {
+  const updateTranData = async () => {
     var FormDatas = new FormData();
-    FormDatas.append("agency_id","5")
-    FormDatas.append("date","12/02/30")
-    FormDatas.append("amount","675")
-    FormDatas.append("mode","check")
+    FormDatas.append("agency_id", "5");
+    FormDatas.append("date", "12/02/30");
+    FormDatas.append("amount", "675");
+    FormDatas.append("mode", "check");
     await axios({
       method: "post",
       url: financeTraUpdateAPI,
@@ -64,27 +74,30 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
         Authorization: `Token ${sessionStorage.getItem("token")}`,
       },
       data: FormDatas,
-    }).then(res=>{
-      toast.success(res.data, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+    })
+      .then((res) => {
+        toast.success(res.data, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
         });
-    }).catch(err=> toast.error('Something went wrong', {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      }))
+      })
+      .catch((err) =>
+        toast.error("Something went wrong", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+      );
   };
-
 
   return (
     <div className="r-d__components">
@@ -97,7 +110,6 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
             textTransform: "capitalize",
           }}
           onClick={() => setshowRdetail(false)}
-          
         >
           &#60; Back
         </Button>
@@ -157,14 +169,18 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
           display: "block",
           marginBottom: "10px",
         }}
-        onClick={()=>updateTranData()}
+        onClick={() => updateTranData()}
         variant="contained"
-        
       >
         Update
       </Button>
       <strong className="strong_r_D">Set Due Date</strong>
-      <input onChange={(e)=>setdateTraData(e.target.value)} className="input_R_D" type="date" placeholder="date" />
+      <input
+        onChange={(e) => setdateTraData(e.target.value)}
+        className="input_R_D"
+        type="date"
+        placeholder="date"
+      />
       <Button
         style={{
           backgroundColor: "rgb(34, 9, 146)",
@@ -175,11 +191,11 @@ function ReceiveDetails({ setshowRdetail, receiveDetailsData,setreceiveDetailsDa
           marginLeft: "15px",
         }}
         variant="contained"
-        onClick={()=>updateDate()}
+        onClick={() => updateDate()}
       >
         Update
       </Button>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

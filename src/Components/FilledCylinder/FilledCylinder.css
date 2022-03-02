@@ -54,17 +54,18 @@
 .filled_cylinder_table {
   display: flex;
   justify-content: space-between;
+  border: none;
  }
 
 td{
-  border:none;
+  /* border:none; */
 }
 td{
   /* border: 2px solid red; */
   padding-top: 10px;
 }
 th{
-  border:none;
+  /* border:none; */
 }
 
 

@@ -6,9 +6,7 @@
 }
 
 .dashboard__container{
-    /* border: 2px solid green; */
     overflow-y: scroll;
-    
     width: 100%;
     background-color: #F5F5F5;
 }

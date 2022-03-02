@@ -2,12 +2,12 @@ import ClearIcon from "@mui/icons-material/Clear";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "@mui/material/Button";
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AccessoriesAddProduct({ setAddProduct }) {
-  const matches = useMediaQuery('(max-width:500px)');
+  const matches = useMediaQuery("(max-width:500px)");
   const [proName, setProName] = useState("");
   const [proOunatity, setProOunatity] = useState("");
   const [proPrice, setProPrice] = useState("");
@@ -15,7 +15,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
   const accessories__main = {
     boxShadow:
       "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px",
-    width: matches?"90%":"400px",
+    width: matches ? "90%" : "400px",
     height: "450px",
     borderRadius: "10px",
     marginTop: "15px",
@@ -35,11 +35,11 @@ function AccessoriesAddProduct({ setAddProduct }) {
     display: "flex",
     padding: "8px 10px",
     borderRadius: "5px",
-    outline:"none",
-    width:"100%"
+    outline: "none",
+    width: "100%",
   };
   const label_all = {
-    fontSize:"small"
+    fontSize: "small",
   };
   const accessories_icon = {
     display: "flex",
@@ -72,16 +72,19 @@ function AccessoriesAddProduct({ setAddProduct }) {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
-      }).catch(err=> toast.error('Something went wrong', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        }))
+        });
+      })
+      .catch((err) =>
+        toast.error("Something went wrong", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+      );
   };
   return (
     <div style={accessories__main}>
@@ -98,7 +101,9 @@ function AccessoriesAddProduct({ setAddProduct }) {
           </strong>
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label style={label_all} htmlFor="">Product Name: </label>
+          <label style={label_all} htmlFor="">
+            Product Name:{" "}
+          </label>
           <input
             onChange={(e) => setProName(e.target.value)}
             style={input_all}
@@ -106,7 +111,9 @@ function AccessoriesAddProduct({ setAddProduct }) {
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label style={label_all} htmlFor="">Ouantity: </label>
+          <label style={label_all} htmlFor="">
+            Ouantity:{" "}
+          </label>
           <input
             onChange={(e) => setProOunatity(e.target.value)}
             style={input_all}
@@ -114,7 +121,9 @@ function AccessoriesAddProduct({ setAddProduct }) {
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label style={label_all} htmlFor="">Price: </label>
+          <label style={label_all} htmlFor="">
+            Price:{" "}
+          </label>
           <input
             onChange={(e) => setProPrice(e.target.value)}
             style={input_all}
@@ -122,7 +131,9 @@ function AccessoriesAddProduct({ setAddProduct }) {
           />
         </div>
         <div style={{ margin: "auto", width: "90%" }}>
-          <label style={label_all} htmlFor="">Product Image: </label>
+          <label style={label_all} htmlFor="">
+            Product Image:{" "}
+          </label>
           <input
             style={input_all}
             type="file"
@@ -138,7 +149,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
           Save
         </Button>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

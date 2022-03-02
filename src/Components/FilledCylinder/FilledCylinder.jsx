@@ -72,10 +72,8 @@ function FilledCylinder() {
             <AddEntryFilledCylinder
               setShowAddEntryFilledCylinder={setShowAddEntryFilledCylinder}
             />
-          ) : (
-            ""
-          )}
-          <div className="filled_cylinder_3small">
+          ) :
+          <><div className="filled_cylinder_3small">
             <Small4FilledCylinder kg= "+15kg" data1=""  data = {sum(1)} name="Domestic" bgcolor="#00BFFF" color="#00BFFF" />
             <Small4FilledCylinder kg="+21kg"  kg1="VOT/LOT+33kg" data={sum(2)} data1={sum(3)} name="Commercial/VOT/LOT" bgcolor="#FA8072" color="#FA8072" />
             <Small4FilledCylinder kg="LOT/+45kg" kg1="" data1=""  data={sum(4)} name="Commercial/LOT" bgcolor="#FFD700" color="#FFD700" />
@@ -136,7 +134,7 @@ function FilledCylinder() {
                 </table>
               </div>
             </div>
-          </div>
+          </div></>}
         </div>
       </div>
     </div>
