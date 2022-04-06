@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getdiscounrSetGasPriceAPI } from "../../../../Utils/utils";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
 import Button from "@mui/material/Button";
@@ -16,7 +16,7 @@ function DiscountPrice() {
     let newArr = [...updateddasprice];
     let name_inp = e.target.name;
     let value = e.target.value;
-    if (name_inp === "name"){
+    if (name_inp === "name") {
       newArr[index].amount = value;
     } else if (name_inp === "name1") {
       newArr[index].cgst = value;
@@ -51,7 +51,7 @@ function DiscountPrice() {
 
   const postDataDiscountFunction = async () => {
     var FormDatas = new FormData();
-   
+
     FormDatas.append(
       "cylinder_discount_gas_price_id",
       JSON.stringify(
@@ -75,24 +75,24 @@ function DiscountPrice() {
       .then((res) => {
         toast.success(res.data, {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
+        });
       })
       .catch((err) => {
-        toast.error('Something went wrong', {
+        toast.error("Something went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
+        });
       });
   };
 
@@ -117,7 +117,7 @@ function DiscountPrice() {
                   </small>
                   <br />
                   <input
-                  style={{outline:"none"}}
+                    style={{ outline: "none" }}
                     name="name"
                     defaultValue={ele.amount}
                     onChange={updateFieldChanged(id)}
@@ -126,7 +126,7 @@ function DiscountPrice() {
                 </td>
                 <td>
                   <input
-                  style={{outline:"none"}}
+                    style={{ outline: "none" }}
                     defaultValue={ele.cgst}
                     name="name1"
                     onChange={updateFieldChanged(id)}
@@ -136,7 +136,7 @@ function DiscountPrice() {
                 </td>
                 <td>
                   <input
-                  style={{outline:"none"}}
+                    style={{ outline: "none" }}
                     defaultValue={ele.sgst}
                     name="name2"
                     onChange={updateFieldChanged(id)}
@@ -152,23 +152,21 @@ function DiscountPrice() {
 
       <div className="setgasprice__buton">
         <Button
-         style={{
-          backgroundColor: "rgb(34, 9, 146)",
-          fontSize: "10px",
-          fontWeight: "600",
-          textTransform: "capitalize",
-          padding: "8px 50px",
-          marginTop:"25px"
-         
-        }}
-        variant="contained"
-      
+          style={{
+            backgroundColor: "rgb(34, 9, 146)",
+            fontSize: "10px",
+            fontWeight: "600",
+            textTransform: "capitalize",
+            padding: "8px 50px",
+            marginTop: "25px",
+          }}
+          variant="contained"
           onClick={postDataDiscountFunction}
         >
           Edit Price
         </Button>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

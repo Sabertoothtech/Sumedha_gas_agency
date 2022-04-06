@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { changepass } from "../../../../Utils/utils";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function ChangePassword() {
@@ -13,13 +13,13 @@ function ChangePassword() {
     width: "95%",
     border: "1px solid gray",
     padding: "8px",
-    border:"1px solid gray",  borderRadius:"5px", 
-   outline:"none"
-
+    border: "1px solid gray",
+    borderRadius: "5px",
+    outline: "none",
   };
-  const label_style={
-    fontSize:"small"
-  }
+  const label_style = {
+    fontSize: "small",
+  };
 
   const changeAPI = () => {
     var FormDatas = new FormData();
@@ -37,34 +37,36 @@ function ChangePassword() {
     axios(config)
       .then((res) => {
         if (res.status === 201) {
-          toast.success('Password Updated sucessfully', {
-              position: "top-center",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              });
-        }
-      })
-      .catch((err) => {
-        toast.error('Something went wrong', {
+          toast.success("Password Updated sucessfully", {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            });
+          });
+        }
+      })
+      .catch((err) => {
+        toast.error("Something went wrong", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
   return (
     <div>
       <small style={{ color: "gray" }}>Change Password</small>
       <div>
-        <label style={label_style} htmlFor="">Email</label>
+        <label style={label_style} htmlFor="">
+          Email
+        </label>
         <input
           style={inputsty}
           value={email}
@@ -72,7 +74,9 @@ function ChangePassword() {
           type="text"
         />
 
-        <label  style={label_style} htmlFor="">Password</label>
+        <label style={label_style} htmlFor="">
+          Password
+        </label>
         <input
           style={inputsty}
           value={password}

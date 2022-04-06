@@ -3,26 +3,46 @@ import "./Profile.css";
 import { useHistory } from "react-router-dom";
 import LeftSidebar from "../../LeftSidebar";
 import SettingTopHeader from "../../../Setting/SettingJsx/SettingTopHeader";
-import Fab from '@mui/material/Fab';
+import Fab from "@mui/material/Fab";
 import Avatar from "@mui/material/Avatar";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
 import MobNavbar from "../../../../CommonComponents/MobNavbar";
 
-
 function Profile() {
-  const matches = useMediaQuery('(max-width:1100px)');
+  const matches = useMediaQuery("(max-width:1100px)");
   const history = useHistory();
   return (
     <div className="prfile__main">
-      {matches?null:<LeftSidebar />}
+      {matches ? null : <LeftSidebar />}
       <div className="profile__container">
-      {matches?<MobNavbar/>:null}
+        {matches ? <MobNavbar /> : null}
         <div className="profile_main_container">
-          {matches?<div style={{display:"flex",alignItems:"center", margin:"0px 20px"}}><SettingTopHeader pageName="Profile" />
-          <Button onClick={()=> {sessionStorage.removeItem("token");history.push("/")}} style={{color:"red", border:"none"}} variant="outlined" color="success"> Logout
-            </Button></div>:
-            <SettingTopHeader pageName="Profile" /> }
+          {matches ? (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                margin: "0px 20px",
+              }}
+            >
+              <SettingTopHeader pageName="Profile" />
+              <Button
+                onClick={() => {
+                  sessionStorage.removeItem("token");
+                  history.push("/");
+                }}
+                style={{ color: "red", border: "none" }}
+                variant="outlined"
+                color="success"
+              >
+                {" "}
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <SettingTopHeader pageName="Profile" />
+          )}
           <hr style={{ color: "#f5f5f5" }} />
 
           <div className="profile_data_image_container">
@@ -30,12 +50,22 @@ function Profile() {
               <div className="profile__avtar">
                 <Avatar
                   alt="Remy Sharp"
-                  src="/static/images/avatar/1.jpg"
+                  src="https://image.shutterstock.com/image-photo/young-confident-handsome-man-full-260nw-1416442523.jpg"
                   sx={{ width: 200, height: 200 }}
                   backgroundColor="rgba(0,0,0,0)"
-                  style={{ border: 0 ,marginTop:"15px"}}
+                  style={{ border: 0, marginTop: "15px" }}
                 />
-                <Fab style={{marginTop:"-25px",position:"relative", fontSize: "30px ",backgroundColor:"#006400", color:"white"}} size="small"  aria-label="add">
+                <Fab
+                  style={{
+                    marginTop: "-25px",
+                    position: "relative",
+                    fontSize: "30px ",
+                    backgroundColor: "#006400",
+                    color: "white",
+                  }}
+                  size="small"
+                  aria-label="add"
+                >
                   +
                 </Fab>
               </div>
@@ -63,10 +93,10 @@ function Profile() {
               <div className="profile__button">
                 <Button
                   style={{
-                    textTransform:"capitalize" ,
-                    padding:"10px 40px",
-                    fontSize:"10px",
-                    fontWeight:"530",
+                    textTransform: "capitalize",
+                    padding: "10px 40px",
+                    fontSize: "10px",
+                    fontWeight: "530",
                     backgroundColor: "rgb(34, 9, 146)",
                     display: "flex",
                     boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",

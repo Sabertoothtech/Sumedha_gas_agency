@@ -5,8 +5,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { getvendorAPI } from "../../../../Utils/utils";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ManageVender({
   setshowAddVendor,
@@ -14,9 +14,9 @@ function ManageVender({
   setshowUpdateVendor,
 }) {
   const [getvendordata, setgetvendordata] = useState([]);
-  const [refresh, setrefresh] = useState(true)
+  const [refresh, setrefresh] = useState(true);
   // const notify = () => toast("Wow so easy!");
-  const deleteAPI = async(id) => {
+  const deleteAPI = async (id) => {
     var FormDatas = new FormData();
     FormDatas.append("id", id);
     const config = {
@@ -30,26 +30,26 @@ function ManageVender({
     };
     await axios(config)
       .then((res) => {
-        toast.success('Vendor sucessfully deleted', {
+        toast.success("Vendor sucessfully deleted", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
+        });
       })
       .catch((err) => {
-        toast.error('Something went wrong', {
+        toast.error("Something went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
+        });
       });
   };
 
@@ -90,14 +90,20 @@ function ManageVender({
             {refresh}
             <div className="manage_vendor_icon">
               <EditIcon
+                fontSize="small"
                 onClick={() => {
                   setvendorupdateID(ele.id);
                   setshowUpdateVendor(true);
                 }}
                 className="icon-vendor"
               />
-              <DeleteIcon onClick={()=>{deleteAPI(ele.id); refresh?setrefresh(false):setrefresh(true)}} />
-              
+              <DeleteIcon
+                fontSize="small"
+                onClick={() => {
+                  deleteAPI(ele.id);
+                  refresh ? setrefresh(false) : setrefresh(true);
+                }}
+              />
             </div>
           </div>
         ))}

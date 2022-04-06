@@ -1,7 +1,7 @@
 import React from "react";
 import "./SidebarProfile.css";
 import { NavLink, useHistory } from "react-router-dom";
-import {Img} from 'react-image'
+import { Img } from "react-image";
 import { Avatar } from "@mui/material";
 import Button from "@mui/material/Button";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -12,8 +12,7 @@ import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import { BiRupee } from "react-icons/bi";
 import { RiDashboard3Line } from "react-icons/ri";
 import ConstructionOutlinedIcon from "@mui/icons-material/ConstructionOutlined";
-import useMediaQuery from '@mui/material/useMediaQuery';
-
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function SidebarProfile() {
   const history = useHistory();
@@ -65,11 +64,16 @@ function SidebarProfile() {
   return (
     <div className="sidebar_profile_main">
       <div className="sidebar_profile_imageContainer">
-        <Avatar alt="Remy Sharp" src="" variant='circular' style={{width:"80px", height:"80px"}} />
+        <Avatar
+          alt="Remy Sharp"
+          src="https://image.shutterstock.com/image-photo/young-confident-handsome-man-full-260nw-1416442523.jpg"
+          variant="circular"
+          style={{ width: "80px", height: "80px" }}
+        />
         {/* <img alt="{jj}" style={{borderRadius: "50%", width:"1000px", height:"500px"}} width="80px" src="https://static.remove.bg/remove-bg-web/126e8851f6e88bf644890fafdf1b0d82aff0629e/assets/start-1abfb4fe2980eabfbbaaa4365a0692539f7cd2725f324f904565a9a744f8e214.jpg" /> */}
         <small>John Cena</small>
         <br />
-        <NavLink style={{fontWeight:"600"}} id="nav_profile" to="/profile">
+        <NavLink style={{ fontWeight: "600" }} id="nav_profile" to="/profile">
           Profile
         </NavLink>
       </div>
@@ -82,23 +86,20 @@ function SidebarProfile() {
               fontSize: "15px",
               fontWeight: "bold",
               letterSpacing: "1px",
-            marginLeft:"20px"
-              
+              marginLeft: "20px",
             }}
           >
-            MENU 
+            MENU
           </strong>
           {iconData.map((icon, idx) => (
             <li key={idx} className={icon.className}>
               <NavLink
-                activeStyle={{ color: "rgb(34, 9, 146)", fontWeight:"bolder"}}
-                style={{color: "gray",fontWeight:"500"}}
+                activeStyle={{ color: "rgb(34, 9, 146)", fontWeight: "bolder" }}
+                style={{ color: "gray", fontWeight: "500" }}
                 to={icon.path}
               >
-                <icon.icon size={25}   />
-                <small style={{ letterSpacing: "1px" }}>
-                  {icon.name}
-                </small>
+                <icon.icon size={25} />
+                <small style={{ letterSpacing: "1px" }}>{icon.name}</small>
               </NavLink>
             </li>
           ))}
@@ -122,7 +123,7 @@ function SidebarProfile() {
         }}
         color="inherit"
         variant="contained"
-        style={{padding: "8px 45px",}}
+        style={{ padding: "8px 45px" }}
       >
         Logout
       </Button>

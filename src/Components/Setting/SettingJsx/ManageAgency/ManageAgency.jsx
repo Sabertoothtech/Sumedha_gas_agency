@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function ManageAgency(props) {
   const [nameagencyArray, setnameagencyArray] = useState([]);
-  const [refresh, setrefresh] = useState(true)
+  const [refresh, setrefresh] = useState(true);
 
   const agencyDelete = async (id) => {
     var FormDatas = new FormData();
@@ -29,7 +29,7 @@ function ManageAgency(props) {
         console.log(res);
         toast.success("Agency sucessfully deleted", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -40,7 +40,7 @@ function ManageAgency(props) {
       .catch((err) => {
         toast.error("Something went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -86,12 +86,18 @@ function ManageAgency(props) {
           <small>{name.agency_name}</small>
           <div className="manage_icon">
             <EditIcon
+              fontSize="small"
               style={{
                 marginRight: "10px",
               }}
-              
             />
-            <DeleteIcon onClick={() => {agencyDelete(name.agency_id); refresh?setrefresh(false):setrefresh(true)}} />
+            <DeleteIcon
+              fontSize="small"
+              onClick={() => {
+                agencyDelete(name.agency_id);
+                refresh ? setrefresh(false) : setrefresh(true);
+              }}
+            />
           </div>
         </div>
       ))}

@@ -1,0 +1,78 @@
+.order__container_post {
+  width: 100%;
+  min-height: 80vh;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.show_myorder_post_crossbutton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  border-radius: 50%;
+  /* padding: 8px; */
+  cursor: pointer;
+}
+.show_myorder_post_crossbutton:hover {
+  background-color: #f5f5f5;
+}
+.show_myorder_post_heading {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.myorder_main_post {
+  border-radius: 15px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  width: 90%;
+  min-height: 70vh;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.myoredr_item_post_box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.myoredr_item_post_box select,
+input {
+  width: 350px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  height: 40px;
+  margin-bottom: 50px;
+  outline: none;
+}
+
+label {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.checkbox_myorder_post {
+  border: none;
+  outline: none;
+  display: inline;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid red;
+}
+.post_order_text {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}

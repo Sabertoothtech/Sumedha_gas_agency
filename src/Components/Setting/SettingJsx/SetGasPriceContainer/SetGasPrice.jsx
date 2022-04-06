@@ -5,7 +5,7 @@ import axios from "axios";
 import Button from "@mui/material/Button";
 import EditPrice from "./EditPrice";
 import { getAgencyAPI } from "../../../../Utils/utils";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 function SetGasPrice() {
   const [updatedasprice, setupdatedasprice] = useState([]);
@@ -75,24 +75,24 @@ function SetGasPrice() {
       .then((res) => {
         toast.success(res.data, {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });;
+        });
       })
       .catch((err) => {
-        toast.error('Something went wrong', {
+        toast.error("Something went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
+        });
       });
   };
 
@@ -118,7 +118,7 @@ function SetGasPrice() {
                   </small>
                   <br />
                   <input
-                  className="inputAccess"
+                    className="inputAccess"
                     value={ele.amount}
                     onChange={updateFieldChanged(id)}
                     name="name"
@@ -127,7 +127,7 @@ function SetGasPrice() {
                 </td>
                 <td>
                   <input
-                  className="inputAccess"
+                    className="inputAccess"
                     value={ele.cgst}
                     onChange={updateFieldChanged(id)}
                     style={{ width: "90px", marginTop: "14px" }}
@@ -137,7 +137,7 @@ function SetGasPrice() {
                 </td>
                 <td>
                   <input
-                  className="inputAccess"
+                    className="inputAccess"
                     value={ele.sgst}
                     onChange={updateFieldChanged(id)}
                     style={{ width: "90px", marginTop: "14px" }}
@@ -168,7 +168,7 @@ function SetGasPrice() {
           Edit Price
         </Button>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

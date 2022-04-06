@@ -4,8 +4,8 @@ import "./UpdateDriver.css";
 import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { addUpdateDriverAPI } from "../../../../Utils/utils";
 import { getdriverIDAPI } from "../../../../Utils/utils";
 
@@ -68,26 +68,29 @@ function UpdateDriver({ setShowCon, setShowupdateCon, udDriverId }) {
       },
     };
     await axios(config)
-    .then(res=>{
-      toast.success(res.data, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+      .then((res) => {
+        toast.success(res.data, {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
         });
-    }).catch(err=> toast.error('Something went wrong', {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      }))
-      // .catch((err) => alert(err));
+      })
+      .catch((err) =>
+        toast.error("Something went wrong", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+      );
+    // .catch((err) => alert(err));
   };
   return (
     <div className=" add_driver__main">
@@ -96,95 +99,105 @@ function UpdateDriver({ setShowCon, setShowupdateCon, udDriverId }) {
           <ClearIcon
             className="add_driver_clearbtn"
             onClick={() => setShowupdateCon(false)}
-            style={{color:"black"}}
+            style={{ color: "black" }}
           />
         </div>
         <strong>Update Driver</strong>
         <div className="add_driver_driverData">
           <div className="add_driver_left_data">
-            <label className="update_driver_label" htmlFor="">Name:</label>
+            <label className="update_driver_label" htmlFor="">
+              Name:
+            </label>
             <input
               className="update_driver_class"
               onChange={(e) => setAdName(e.target.value)}
               defaultValue={adname}
               type="text"
             />
-            
 
-            <label className="update_driver_label" htmlFor="">Driver Id:</label>
+            <label className="update_driver_label" htmlFor="">
+              Driver Id:
+            </label>
             <input
-             className="update_driver_class"
+              className="update_driver_class"
               onChange={(e) => setAdDriverId(e.target.value)}
               defaultValue={adDriverId}
               type="text"
             />
-            
 
-            <label className="update_driver_label" htmlFor="">Employee Id:</label>
+            <label className="update_driver_label" htmlFor="">
+              Employee Id:
+            </label>
             <input
-             className="update_driver_class"
+              className="update_driver_class"
               onChange={(e) => setAdEmpId(e.target.value)}
               defaultValue={adEmpId}
               type="text"
             />
-            
 
-            <label className="update_driver_label" htmlFor="">Driving licence no:</label>
+            <label className="update_driver_label" htmlFor="">
+              Driving licence no:
+            </label>
             <input
-             className="update_driver_class"
+              className="update_driver_class"
               onChange={(e) => setAdDLN(e.target.value)}
               defaultValue={adDLN}
               type="text"
             />
-            
 
-            <label className="update_driver_label" htmlFor="">Email:</label>
+            <label className="update_driver_label" htmlFor="">
+              Email:
+            </label>
             <input
-             className="update_driver_class"
+              className="update_driver_class"
               onChange={(e) => setAdEmail(e.target.value)}
               defaultValue={adEmail}
               type="text"
             />
-            
           </div>
           <div className="add_driver_right_data">
-            <label className="update_driver_label" htmlFor="">Contact no:</label>
+            <label className="update_driver_label" htmlFor="">
+              Contact no:
+            </label>
             <input
-             className="update_driver_class"
+              className="update_driver_class"
               onChange={(e) => setAdContact(e.target.value)}
               defaultValue={adContact}
               type="text"
             />
-            
 
-            <label className="update_driver_label" htmlFor="">Alternate contact no:</label>
+            <label className="update_driver_label" htmlFor="">
+              Alternate contact no:
+            </label>
             <input
-             className="update_driver_class"
+              className="update_driver_class"
               onChange={(e) => setAdACN(e.target.value)}
               defaultValue={adACN}
               type="text"
             />
-            
 
-            <label className="update_driver_label" htmlFor="">Alloted vehicle no:</label>
+            <label className="update_driver_label" htmlFor="">
+              Alloted vehicle no:
+            </label>
             <input
-             className="update_driver_class"
+              className="update_driver_class"
               onChange={(e) => setAdAVN(e.target.value)}
               defaultValue={adAVN}
               type="text"
             />
-            
 
-            <label className="update_driver_label" htmlFor="">Password:</label>
+            <label className="update_driver_label" htmlFor="">
+              Password:
+            </label>
             <input
-             className="update_driver_class"
+              className="update_driver_class"
               onChange={(e) => setAdPass(e.target.value)}
               type="text"
             />
 
             <Button
               onClick={addDriverClick}
-              style={{marginTop:"40px", width:"90%"}}
+              style={{ marginTop: "40px", width: "90%" }}
               variant="contained"
               color="success"
             >
@@ -193,7 +206,7 @@ function UpdateDriver({ setShowCon, setShowupdateCon, udDriverId }) {
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

@@ -13,6 +13,7 @@ function ReceiveDetails({
   setshowRdetail,
   receiveDetailsData,
   setreceiveDetailsData,
+  RConpanyData,
 }) {
   const [updateTraData, setupdateTraData] = useState({
     id: null,
@@ -20,7 +21,7 @@ function ReceiveDetails({
     amount: null,
     mode: null,
   });
-
+  console.log("object....", receiveDetailsData);
   const [updatedateData, setdateTraData] = useState(null);
 
   const updateDate = async () => {
@@ -39,7 +40,7 @@ function ReceiveDetails({
       .then((res) => {
         toast.success(res.data, {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -50,7 +51,7 @@ function ReceiveDetails({
       .catch((err) =>
         toast.error("Something went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -60,12 +61,13 @@ function ReceiveDetails({
       );
   };
 
-  const updateTranData = async () => {
+  const updateTranmode = async () => {
     var FormDatas = new FormData();
-    FormDatas.append("agency_id", "5");
-    FormDatas.append("date", "12/02/30");
-    FormDatas.append("amount", "675");
-    FormDatas.append("mode", "check");
+    FormDatas.append("agency_id", receiveDetailsData.id);
+    FormDatas.append("date", updateTraData.date);
+    FormDatas.append("amount", updateTraData.amount);
+    FormDatas.append("mode", updateTraData.mode);
+
     await axios({
       method: "post",
       url: financeTraUpdateAPI,
@@ -78,7 +80,7 @@ function ReceiveDetails({
       .then((res) => {
         toast.success(res.data, {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -89,7 +91,7 @@ function ReceiveDetails({
       .catch((err) =>
         toast.error("Something went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -132,6 +134,7 @@ function ReceiveDetails({
           <th>Amount</th>
           <th>Transaction mode</th>
         </tr>
+
         <tr>
           <td align="center">12/23/23</td>
           <td align="center">12/23/23</td>
@@ -154,9 +157,30 @@ function ReceiveDetails({
       </table>
       <strong className="strong_r_D">Add Transaction</strong>
       <div className="input_R_D_update">
-        <input className="input_R_D" type="date" placeholder="date" />
-        <input className="input_R_D" type="text" placeholder="amount" />
-        <input className="input_R_D" type="text" placeholder="Mode" />
+        <input
+          className="input_R_D"
+          onChange={(e) => {
+            setupdateTraData({ ...updateTraData, date: e.target.value });
+          }}
+          type="date"
+          placeholder="date"
+        />
+        <input
+          onChange={(e) => {
+            setupdateTraData({ ...updateTraData, amount: e.target.value });
+          }}
+          className="input_R_D"
+          type="text"
+          placeholder="amount"
+        />
+        <input
+          onChange={(e) => {
+            setupdateTraData({ ...updateTraData, mode: e.target.value });
+          }}
+          className="input_R_D"
+          type="text"
+          placeholder="Mode"
+        />
       </div>
 
       <Button
@@ -169,7 +193,7 @@ function ReceiveDetails({
           display: "block",
           marginBottom: "10px",
         }}
-        onClick={() => updateTranData()}
+        onClick={() => updateTranmode()}
         variant="contained"
       >
         Update

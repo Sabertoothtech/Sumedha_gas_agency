@@ -10,19 +10,31 @@ import CompanyReceivable from "./AllFinanceContainer/CompanyReceivable";
 import CompanyPayable from "./AllFinanceContainer/CompanyPayable";
 import ReceiveDetails from "./AllFinanceContainer/ReceiveDetails";
 import PayDetails from "./AllFinanceContainer/PayDetails";
-import { financeReceiveCompanyAPI } from "../../Utils/utils";
+import {
+  financeReceiveCompanyAPI,
+  getvenderAmountPayable,
+} from "../../Utils/utils";
 import axios from "axios";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 import MobNavbar from "../../CommonComponents/MobNavbar";
 
 function Finance() {
-  const matches = useMediaQuery('(max-width:1100px)');
+  const matches = useMediaQuery("(max-width:1100px)");
   const [showRdetail, setshowRdetail] = useState(false);
   const [showPdetail, setshowPdetail] = useState(false);
 
   const [RConpanyData, setRConpanyData] = useState([]);
   const [receiveDetailsData, setreceiveDetailsData] = useState();
+
   const [PConpanyData, setPConpanyData] = useState([]);
+  const [payableDetailsData, setPayableDetailsData] = useState();
+
+  const sum = (id) => {
+    const sumall = id
+      .map((item) => item.amount)
+      .reduce((prev, curr) => prev + curr, 0);
+    return sumall;
+  };
 
   const getReceiveDetails = async () => {
     const config = {
@@ -37,11 +49,36 @@ function Finance() {
         setRConpanyData(
           res.data.map((data) => ({
             agency_name: data.agency_name,
-            date: data.agency_details.date,
-            amount: data.agency_details.total_amount,
-            transaction: data.last_transactions.last_transactions,
-            invoices: data.last_invoices.last_invoices,
+            date: data.due_date,
+            amount: data.agency_details.deposited_amount,
+
             id: data.agency_details.id,
+          }))
+        );
+      })
+      .catch((err) => {
+        // alert("wrong");
+      });
+  };
+
+  const getPayableDetails = async () => {
+    const config = {
+      url: getvenderAmountPayable,
+      method: "get",
+      headers: {
+        Authorization: `Token ${sessionStorage.getItem("token")}`,
+      },
+    };
+    await axios(config)
+      .then((res) => {
+        setPConpanyData(
+          res.data.map((data) => ({
+            vendor_name: data.vendor_name,
+            date: data.vendor_detail.date,
+            amount: data.vendor_detail.amount_payable,
+            last_transactions: data.last_transactions,
+            invoices: data.last_invoices,
+            id: data.vendor_detail.id,
           }))
         );
       })
@@ -52,21 +89,38 @@ function Finance() {
 
   useEffect(() => {
     getReceiveDetails();
+    getPayableDetails();
   }, []);
-
+  // console.log("object,;;;;;;;,;;", PConpanyData);
   return (
     <div className="finance__main">
-      {matches?null:<LeftSidebar />}
+      {matches ? null : <LeftSidebar />}
       <div className="finance__container">
-      {matches?<MobNavbar/>:null}
+        {matches ? <MobNavbar /> : null}
         <div className="finance_main_container">
           <FinanceHeader />
           <hr style={{ color: "#f5f5f5" }} />
           <div className="finance_progressbar_container">
-            <DataCircleGraph bgcolor="#006400" icon={TrendingUpIcon} />
-            <DataCircleGraph bgcolor="#dc143c" icon={TrendingDownIcon} />
-            <ProgressbarContainer title="Amount to receive" />
-            <ProgressbarContainer title="Payable amount" />
+            <DataCircleGraph
+              title="Case Inflow"
+              percent="17%"
+              bgcolor="#006400"
+              icon={TrendingUpIcon}
+            />
+            <DataCircleGraph
+              title="Case Outflow"
+              percent="-9%"
+              bgcolor="#dc143c"
+              icon={TrendingDownIcon}
+            />
+            <ProgressbarContainer
+              data={sum(RConpanyData)}
+              title="Amount to receive"
+            />
+            <ProgressbarContainer
+              data={sum(PConpanyData)}
+              title="Payable amount"
+            />
           </div>
 
           <div className="finance_both_table">
@@ -92,9 +146,16 @@ function Finance() {
               <small>Amount Payable</small>
               <div className="finance_payable_company">
                 {showPdetail ? (
-                  <PayDetails setshowPdetail={setshowPdetail} />
+                  <PayDetails
+                    setshowPdetail={setshowPdetail}
+                    payableDetailsData={payableDetailsData}
+                  />
                 ) : (
-                  <CompanyPayable setshowPdetail={setshowPdetail} />
+                  <CompanyPayable
+                    PConpanyData={PConpanyData}
+                    setshowPdetail={setshowPdetail}
+                    setPayableDetailsData={setPayableDetailsData}
+                  />
                 )}
               </div>
             </div>

@@ -5,18 +5,18 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import { addDriverAPI } from "../../../../Utils/utils";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ManageDriver(props) {
   const [showDriverName, setShowDriverName] = useState([]);
-  const [refresh, setrefresh] = useState(true)
+  const [refresh, setrefresh] = useState(true);
 
   const addDriverClick = () => {
     props.setdriverPopUp(true);
   };
 
-  const deleteAPI =async(id) => {
+  const deleteAPI = async (id) => {
     var FormDatas = new FormData();
     FormDatas.append("driver_id", id);
     const config = {
@@ -30,27 +30,26 @@ function ManageDriver(props) {
     };
     await axios(config)
       .then((res) => {
-       
-        toast.success('Driver sucessfully deleted', {
+        toast.success("Driver sucessfully deleted", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
+        });
       })
       .catch((err) => {
-        toast.error('Something went wrong', {
+        toast.error("Something went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          });
+        });
       });
   };
 
@@ -67,7 +66,7 @@ function ManageDriver(props) {
         // console.log(res.data[18].name)
         const ddname = res.data.map((dname, idx) => ({
           drivername: dname.name,
-          driverid:dname.id
+          driverid: dname.id,
         }));
         setShowDriverName(ddname);
       })
@@ -88,8 +87,21 @@ function ManageDriver(props) {
         <div key={id} className="manage_driver_name_icon">
           <small>{name.drivername}</small>
           <div className="manage_icon">
-            <EditIcon style={{marginRight:"10px"}}  onClick={() =>{ props.setupdatePopUp(true); props.setUpDriverId(name.driverid) }} />
-            <DeleteIcon onClick={()=> {deleteAPI(name.driverid);refresh? setrefresh(false):setrefresh(true)}} />
+            <EditIcon
+              fontSize="small"
+              style={{ marginRight: "10px" }}
+              onClick={() => {
+                props.setupdatePopUp(true);
+                props.setUpDriverId(name.driverid);
+              }}
+            />
+            <DeleteIcon
+              fontSize="small"
+              onClick={() => {
+                deleteAPI(name.driverid);
+                refresh ? setrefresh(false) : setrefresh(true);
+              }}
+            />
           </div>
         </div>
       ))}

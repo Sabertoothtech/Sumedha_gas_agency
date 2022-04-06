@@ -1,0 +1,51 @@
+.show_transit__main {
+  width: 100%;
+  min-height: 80vh;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.show_transit_container {
+  border-radius: 15px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  width: 90%;
+  min-height: 70vh;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.show_colloect_crossbutton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.show_transit_heading {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.both_item_container_transit {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.both_item_container_transit select,
+input,
+.transit_button_post {
+  width: 350px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  height: 40px;
+  margin-bottom: 50px;
+  outline: none;
+}

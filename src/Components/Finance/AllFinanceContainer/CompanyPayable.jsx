@@ -1,83 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 
-function CompanyPayable({setshowPdetail}) {
-  const company_receivable__main = {
-    border: "2px solid gray",
-    width: "100%",
-    height: "35px",
-    borderRadius: "5px",
-    marginBottom: "8px",
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-  };
+function CompanyPayable({
+  setshowPdetail,
+  PConpanyData,
+  setPayableDetailsData,
+}) {
   return (
     <>
-      <div onClick={()=> setshowPdetail(true)} style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
+      {PConpanyData.map((ele, key) => (
+        <tr
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            border: "1px solid gray",
+            paddingRight: "20px",
+            paddingLeft: "20px",
+            paddingBottom: "8px",
+            borderRadius: "5px",
+          }}
+          key={key}
+          onClick={() => {
+            setshowPdetail(true);
+            setPayableDetailsData({
+              id: ele.id,
+              name: ele.vendor_name,
+              amount: ele.amount,
+              date: ele.date,
+              transaction: ele.last_transactions,
+              invoices: ele.invoices,
+            });
+          }}
+        >
+          {ele.amount === null ? (ele.amount = 0) : ""}
 
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
-
-      <div style={company_receivable__main}>
-        <small>RD AGENCY</small>
-        <small>10/10/2010</small>
-        <small>Rs. 1200</small>
-      </div>
+          <td align="left">
+            <small>{ele.vendor_name}</small>
+          </td>
+          <td align="center">
+            <small>{ele.date}</small>
+          </td>
+          <td align="left">
+            <small>{ele.amount}</small>
+          </td>
+        </tr>
+      ))}
     </>
   );
 }

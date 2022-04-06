@@ -73,7 +73,7 @@ function CostOfEmptyCylinder() {
         if (res.status === 201) {
           toast.success("Updated sucessfully", {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -85,7 +85,7 @@ function CostOfEmptyCylinder() {
       .catch((err) => {
         toast.error("someting went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,

@@ -66,7 +66,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
       .then(function (response) {
         toast.success(response.data, {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -77,7 +77,7 @@ function AccessoriesAddProduct({ setAddProduct }) {
       .catch((err) =>
         toast.error("Something went wrong", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
